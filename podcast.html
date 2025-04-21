@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Podcast – Enquête sonore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+    :root {
+            --accent: #00bcd4;
+            --bg: #0f1c2e;
+            --text: #f0f0f0;
+            --muted: #a0a0a0;
+            --card-bg: #19283f;
+        }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-home {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .flight-steps {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: white;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .step.active {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+        .step i {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+    .intro {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background: url('https://www.transparenttextures.com/patterns/black-linen.png') repeat, #0d0d0d;
+      color: #f4f4f4;
+      font-size: 1.3rem;
+      position: relative;
+    }
+
+    .intro::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 3px;
+      background: #00bcd4;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {opacity: 0.3;}
+      50% {opacity: 1;}
+    }
+
+    .player {
+      margin: 3rem auto;
+      max-width: 600px;
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .player audio {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .notes, .transcripts {
+      max-width: 800px;
+      background: #fff;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .notes h3, .transcripts h3 {
+      font-family: 'Indie Flower', cursive;
+      color: #1a1a1a;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .accordion {
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      outline: none;
+      text-align: left;
+      font-size: 1.1rem;
+      transition: 0.3s;
+      margin-bottom: 0.5rem;
+    }
+
+    button.active, .accordion:hover {
+      background-color: #ccc;
+    }
+
+    .panel {
+      padding: 0 1rem;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+      border-left: 2px solid #00bcd4;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .nav-buttons {
+            text-align: center;
+            margin: 3rem auto;
+        }
+
+        .nav-buttons a {
+            margin: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #00acc1;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+  </style>
+</head>
+<body>
+    <header>
+        <a class="back-home" href="index.html">&larr; Accueil</a>
+        <nav class="flight-steps">
+            <a class="step" href="decollage.html"><i>🛫</i> Décollage</a>
+            <a class="step" href="reperage.html"><i>🚁</i> Repérages</a>
+            <a class="step" href="survol-tactique.html"><i>🔎</i> Tactique</a>
+            <a class="step active" href="podcast.html"><i>🎧</i> Transmission</a>
+            <a class="step" href="atterrissage2.html"><i>⚖️</i> Atterrissage</a>
+        </nav>
+    </header>
+
+  <section class="intro">
+    <p>Notre drone a &eacute;t&eacute; nos yeux... mais ce sont les voix du terrain qui donnent du sens aux images. Voici notre enqu&ecirc;te sonore, entre entretiens, documents, et r&eacute;cits personnels.</p>
+  </section>
+
+  <div class="player">
+    <img src="https://cdn-icons-png.flaticon.com/512/151/151894.png" alt="Micro icon" width="60" />
+    <h3 style="margin: 1rem 0 0.5rem;">Episode 1 : Voix de terrain</h3>
+    <audio controls>
+      <source src="votre-podcast.mp3" type="audio/mp3">
+      Votre navigateur ne supporte pas l'&eacute;coute audio.
+    </audio>
+  </div>
+
+  <div class="notes">
+    <h3>📓 Notes de l'&eacute;quipe</h3>
+    <p>Nous avons choisi de ne pas enregistrer certains t&eacute;moignages sensibles. Certains r&eacute;pondants ont exprim&eacute; leurs craintes face aux drones, d'autres leur indiff&eacute;rence.</p>
+    <p>Ce podcast tente de restituer fid&egrave;lement les &eacute;motions, sans trahir les paroles recueillies.</p>
+  </div>
+
+  <div class="transcripts">
+    <h3>📜 Transcriptions & documents</h3>
+    <button class="accordion">🔎 Transcription de l'entretien PAF</button>
+    <div class="panel">
+      <p>"Le drone est un outil suppl&eacute;mentaire. Mais ce n’est pas une solution miracle. Il faut &ecirc;tre sur le terrain."</p>
+    </div>
+
+    <button class="accordion">📄 Texte officiel Frontex</button>
+    <div class="panel">
+      <p>Frontex confirme l’usage de cam&eacute;ras thermiques pour le suivi de flux migratoires, tout en respectant la r&eacute;glementation europ&eacute;enne sur la vie priv&eacute;e.</p>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="survol-tactique.html">← Survol Tactique</a>
+    <a href="atterrissage2.html">🛬 Atterrissage</a>
+  </div>
+
+  <footer>
+    <p>Podcast & voix du terrain – Projet A3 – 2024-2025</p>
+  </footer>
+
+  <script>
+    const acc = document.querySelectorAll(".accordion");
+    acc.forEach(btn => btn.addEventListener("click", function() {
+      this.classList.toggle("active");
+      const panel = this.nextElementSibling;
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+    }));
+  </script>
+</body>
+</html>

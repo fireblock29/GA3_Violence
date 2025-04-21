@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Décollage - Cartographie des Controverses</title>
+
+    <style>
+        :root {
+            --accent: #00bcd4;
+            --bg: #0f1c2e;
+            --text: #f0f0f0;
+            --muted: #a0a0a0;
+            --card-bg: #19283f;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-home {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            font-size: 2rem;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .flight-steps {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: white;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .step.active {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+        .step i {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero {
+            height: 100vh;
+            background: url('drone-ciel.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .hero button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            background: white;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .hero button:hover {
+            background: #ddd;
+        }
+
+        .quote-floating {
+            position: absolute;
+            bottom: 20px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat-block {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1 1 200px;
+        }
+
+        .actor-preview {
+            display: flex;
+            justify-content: space-around;
+            opacity: 0.6;
+        }
+
+        .actor-preview img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        blockquote {
+            font-style: italic;
+            margin: 2rem 0;
+        }
+
+        .nav-buttons {
+            text-align: center;
+            margin: 3rem auto;
+        }
+
+        .nav-buttons a {
+            margin: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #00acc1;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="back-home" href="index.html">&larr; Accueil</a>
+        <nav class="flight-steps">
+            <a class="step active" href="decollage.html"><i>🛫</i> Décollage</a>
+            <a class="step" href="reperage.html"><i>🚁</i> Repérages</a>
+            <a class="step" href="survol-tactique.html"><i>🔎</i> Tactique</a>
+            <a class="step" href="podcast.html"><i>🎧</i> Transmission</a>
+            <a class="step" href="atterrissage2.html"><i>⚖️</i> Atterrissage</a>
+        </nav>
+    </header>
+
+    <section>
+        <h1 class="section-title">Une technologie en altitude, des enjeux au sol.</h1>
+        <p>Bienvenue dans l'univers de la surveillance par drones aux frontières.</p>
+        <p class="quote-floating">"Les frontières ne sont plus seulement géographiques, elles sont technologiques."</p>
+    </section>
+
+    <section id="contexte">
+        <h2>Pourquoi des drones ?</h2>
+        <p>Les drones sont déployés pour surveiller, dissuader et intervenir aux frontières européennes. Leur usage
+            soulève des questions sur la liberté, la sécurité et la transparence.</p>
+        <div class="stats">
+            <div class="stat-block">
+                <h3>300M€</h3>
+                <p>Budget Frontex 2024</p>
+            </div>
+            <div class="stat-block">
+                <h3>12 000 km</h3>
+                <p>Frontières terrestres à surveiller</p>
+            </div>
+            <div class="stat-block">
+                <h3>5 000+</h3>
+                <p>Missions de drone annuelles</p>
+            </div>
+        </div>
+        <blockquote>
+            "La technologie dépasse les lignes, elle redessine le territoire."
+        </blockquote>
+        <img src="infographie.jpg" alt="Infographie des opérations de drones"
+            style="width:100%; max-width:600px; display:block; margin:auto;">
+    </section>
+
+    <section>
+        <h2>Qui surveille ? Qui est surveillé ? Qui conçoit ?</h2>
+        <div class="actor-preview">
+            <img src="acteur1.jpg" alt="Acteur 1">
+            <img src="acteur2.jpg" alt="Acteur 2">
+            <img src="acteur3.jpg" alt="Acteur 3">
+        </div>
+        <p>Des rôles opposés mais interdépendants. Chaque acteur façonne la frontière à sa manière.</p>
+        <a href="reperage.html"><button>Voir la carte des acteurs</button></a>
+    </section>
+
+    <section>
+        <h2>Ils nous ont parlé. Voici ce qu'ils disent.</h2>
+        <blockquote>"On les entend, on les voit parfois, mais on ne sait jamais quand ils arrivent."</blockquote>
+        <blockquote>"Le drone est devenu un agent silencieux, toujours présent."</blockquote>
+        <img src="terrain.jpg" alt="Photo stylisée drone montagnes"
+            style="width:100%; max-width:600px; display:block; margin:auto;">
+        <a href="survol-tactique.html"><button>Découvrir l'enquête</button></a>
+    </section>
+
+    <section>
+        <h2>Jusqu'où la technologie peut-elle aller ?</h2>
+        <video autoplay muted loop style="width:100%; max-width:600px; display:block; margin:auto;">
+            <source src="surveillance.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <blockquote>« Efficace mais dangereux » — « Pour la sécurité ou contre la liberté ? »</blockquote>
+        <a href="/atterrissage.html"><button>Explorer le débat</button></a>
+    </section>
+
+    <section>
+        <h2>Écoutez notre enquête</h2>
+        <p>Plongez dans notre podcast qui dddddddddddddddddddddddddd</p>
+        <div class="podcast-player">
+            <iframe src="https://www.vodio.fr/frameplay.php?idref=17415&urlref=1"
+                style="border: 0px none; box-shadow: rgba(0, 0, 0, 0.28) 0px 0px 10px; width: calc(100% - 10px); height: 180px; margin-left: 5px; padding: 0;"
+                scrolling="no"></iframe>
+        </div>
+    </section>
+
+    <!-- Boutons de navigation -->
+    <div class="nav-buttons">
+        <a href="index.html">← Accueil</a>
+        <a href="reperage.html">Voir les acteurs</a>
+    </div>
+
+    <footer>
+        <p>Projet étudiant – Cartographie des controverses – 2025</p>
+        <p>Merci à toutes les personnes interrogées, à Frontex, la PAF, etc.</p>
+        <p><strong> Kossi Alain BILOBA, 
+            Charles Junior Eithel ESSIMBI EMINI, 
+            Lhuisse GUIEMA IBONDZI, 
+            Lola LE CLEACH, 
+            Lucas PERROT</strong></p>
+    </footer>
+</body>
+
+</html>
