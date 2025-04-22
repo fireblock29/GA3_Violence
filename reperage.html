@@ -97,11 +97,18 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background-color: red;
             border-radius: 50%;
             border: 2px solid white;
             cursor: pointer;
             transition: transform 0.2s ease;
+        }
+
+        .red{
+            background-color: red;
+        }
+
+        .blue{
+            background-color: blue;
         }
 
         .map-point:hover {
@@ -209,10 +216,10 @@
             <img src="eur.png" alt="Carte de l'Europe" class="map-image" />
             
             <!-- Points rouges sur la carte -->
-            <div class="map-point frontex" onclick="showActorInfo('frontex')"></div>
-            <div class="map-point paf" onclick="showActorInfo('paf')"></div>
-            <div class="map-point migrants" onclick="showActorInfo('migrants')"></div>
-            <div class="map-point thales" onclick="showActorInfo('thales')"></div>
+            <div class="map-point frontex red" onclick="showActorInfo('frontex')"></div>
+            <div class="map-point paf red" onclick="showActorInfo('paf')"></div>
+            <div class="map-point migrants blue" onclick="showActorInfo('migrants')"></div>
+            <div class="map-point thales red" onclick="showActorInfo('thales')"></div>
         </div>
 
         <!-- Informations sur les acteurs -->

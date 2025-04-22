@@ -304,6 +304,12 @@
         .reduce{
             font-size: 1.7rem;
         }
+        .time-img{
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+            display: block;
+        }
 
     </style>
 </head>
@@ -465,13 +471,13 @@
 
 <script>
     const events = [
-        "🛩️ <strong>Années 1990 :</strong> Premiers drones militaires développés.",
-        "🌊 <strong>2000 :</strong> Tests de surveillance maritime par la marine italienne.",
-        "🚢 <strong>2015 :</strong> Intensification liée à la 'crise migratoire' en Méditerranée.",
-        "🧑‍⚖️ <strong>2018 :</strong> Premiers rapports d’ONG sur la surveillance déshumanisante.",
-        "🔍 <strong>2020 :</strong> Conseil de l’Europe alerte sur les atteintes à la vie privée.",
-        "📜 <strong>2021 :</strong> Réglementation italienne renforcée (usage zones urbaines).",
-        "⚖️ <strong>2022-2023 :</strong> Le Parlement européen exige plus de transparence et de respect des droits fondamentaux."
+        "🛩️ <strong>Années 1990 :</strong> Premiers drones militaires développés.</br><img class='time-img' src='drone.jpeg'>",
+        "🌊 <strong>2000 :</strong> Tests de surveillance maritime par la marine italienne. </br><img class='time-img' src='ital.jpg'>",
+        "🚢 <strong>2015 :</strong> Intensification liée à la 'crise migratoire' en Méditerranée.</br><img class='time-img' src='bateau.jpeg'>",
+        "🧑‍⚖️ <strong>2018 :</strong> Premiers rapports d’ONG sur la surveillance déshumanisante.</br><img class='time-img' src='surv.jpg'>",
+        "🔍 <strong>2020 :</strong> Conseil de l’Europe alerte sur les atteintes à la vie privée.</br><img class='time-img' src='conseil.png'>",
+        "📜 <strong>2021 :</strong> Réglementation italienne renforcée (usage zones urbaines).</br><img class='time-img' src='loi.jpeg'>",
+        "⚖️ <strong>2022-2023 :</strong> Le Parlement européen exige plus de transparence et de respect des droits fondamentaux.</br><img class='time-img' src='parl.jpg'>"
     ];
 
     const contentDiv = document.getElementById('timeline-content');
