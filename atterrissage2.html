@@ -253,6 +253,53 @@
       text-align: center;
       padding: 2rem 1rem;
     }
+    .burger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media(max-width: 880px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .flight-steps {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .flight-steps.show {
+                display: flex;
+            }
+
+            .flight-steps a {
+                padding: 0.5rem 1rem;
+                background: #2a2a2a;
+                border-radius: 8px;
+            }
+
+            .flight-steps {
+                gap: 0.5rem;
+            }
+            .nav-buttons{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+        }
   </style>
 </head>
 
@@ -260,7 +307,7 @@
 
   <div class="video-container" id="videoContainer">
     <video id="droneVideo" autoplay muted>
-      <source src="land.mp4" type="video/mp4">
+      <source src="land2.mp4" type="video/mp4">
       Votre navigateur ne supporte pas la lecture vidéo.
     </video>
     <div class="video-title">Fin de vol. Mais pas de la question.</div>
@@ -269,6 +316,7 @@
   <div class="main-content" id="mainContent">
     <header>
       <a class="back-home" href="index.html">&larr; Accueil</a>
+      <button class="burger" onclick="toggleMenu()">☰</button>
       <nav class="flight-steps">
         <a class="step" href="decollage.html"><i>🛫</i> Décollage</a>
         <a class="step" href="reperage.html"><i>🚁</i> Repérages</a>
@@ -296,15 +344,18 @@
       <section class="balance">
         <div class="card">
           <h3>Pushbacks illégaux</h3>
-          <p>Des drones repèrent les embarcations pour coordonner des refoulements vers la Libye, en violation du droit international.</p>
+          <p>Des drones repèrent les embarcations pour coordonner des refoulements vers la Libye, en violation du droit
+            international.</p>
         </div>
         <div class="card">
           <h3>Non-assistance en mer</h3>
-          <p>Repérer ne veut pas toujours dire sauver. Les drones ne remplacent pas les opérations de secours, souvent absentes.</p>
+          <p>Repérer ne veut pas toujours dire sauver. Les drones ne remplacent pas les opérations de secours, souvent
+            absentes.</p>
         </div>
         <div class="card">
           <h3>Profilage et discrimination</h3>
-          <p>Les caméras et IA intégrées favorisent le ciblage ethnique et renforcent les logiques de suspicion systématique.</p>
+          <p>Les caméras et IA intégrées favorisent le ciblage ethnique et renforcent les logiques de suspicion
+            systématique.</p>
         </div>
       </section>
 
@@ -329,20 +380,23 @@
     </div>
     <section class="hero">
       <p>
-        L’usage massif des drones en Italie interroge sur la militarisation des frontières. En collectant des données sans
+        L’usage massif des drones en Italie interroge sur la militarisation des frontières. En collectant des données
+        sans
         consentement et en facilitant les pushbacks, ils contribuent à des pratiques répressives parfois contraires au
         droit international.
       </p>
       <p>
-        Des voix s’élèvent pour alerter sur l’équilibre à trouver entre efficacité technologique et respect des principes
-        humanitaires. À long terme, l’investissement dans ces outils détourne des ressources d’alternatives plus humaines
+        Des voix s’élèvent pour alerter sur l’équilibre à trouver entre efficacité technologique et respect des
+        principes
+        humanitaires. À long terme, l’investissement dans ces outils détourne des ressources d’alternatives plus
+        humaines
         : accueil, coopération internationale, intégration.
       </p>
       <p>
         La question reste ouverte : une frontière ultra-surveillée peut-elle encore garantir les droits fondamentaux ?
       </p>
     </section>
-    
+
 
     <div class="call-to-action">
       <p>Et vous ? Faut-il une éthique des drones de frontière ?</p>
@@ -375,7 +429,31 @@
       mainContent.classList.add('fade-in');
       //document.body.style.overflow = 'hidden';
     });
+
+    video.addEventListener('play', function () {
+      video.currentTime = 2; // Commence la vidéo à la 2e seconde
+    });
+
+    // Quand la vidéo atteint la 8e seconde, on la met en pause et on lance l'action
+    video.addEventListener('timeupdate', function () {
+      if (video.currentTime >= 7) {
+        video.pause(); // Met la vidéo en pause
+        videoContainer.style.display = 'none'; // Masque le conteneur vidéo
+        mainContent.style.display = 'flex'; // Affiche le contenu principal
+        mainContent.classList.add('fade-in'); // Ajoute l'animation de fade-in
+        // document.body.style.overflow = 'hidden'; // Vous pouvez décommenter cette ligne si vous souhaitez désactiver le défilement de la page
+      }
+    });
+
+    function toggleMenu() {
+            const menu = document.querySelector('.flight-steps');
+            menu.classList.toggle('show');
+        }
+
+
   </script>
+
+
 
 </body>
 

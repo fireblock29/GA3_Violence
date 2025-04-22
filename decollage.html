@@ -43,7 +43,7 @@
 
         .section-title {
             text-align: center;
-            padding: 3rem 1rem 2rem;
+            padding: 0.2rem 1rem 2rem;
             font-size: 2rem;
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 1px;
@@ -271,8 +271,32 @@
 
         blockquote {
             font-style: italic;
-            margin: 2rem 0;
+            /* Texte en italique */
+            border-left: 5px solid #ccc;
+            /* Bordure gauche pour un effet de citation */
+            padding-left: 20px;
+            /* Espacement à gauche du texte */
+            margin: 20px 0;
+            /* Espacement autour de la citation */
+            color: #333;
+            /* Couleur du texte */
+            background-color: #f9f9f9;
+            /* Couleur de fond légère */
+            font-size: 1.2em;
+            /* Taille de police légèrement plus grande */
+            line-height: 1.6;
+            /* Espacement entre les lignes pour aérer le texte */
         }
+
+        blockquote footer {
+            font-size: 1em;
+            margin-top: 10px;
+            color: #777;
+            /* Couleur plus claire pour l'auteur */
+            font-style: normal;
+            /* Rétablit le style normal pour l'auteur */
+        }
+
 
         .nav-buttons {
             text-align: center;
@@ -294,29 +318,109 @@
             background-color: #00acc1;
         }
 
-        footer {
+        body>footer {
             background: #1a1a1a;
             color: white;
             text-align: center;
             padding: 2rem 1rem;
         }
 
-        .reduce{
+        .reduce {
             font-size: 1.7rem;
         }
-        .time-img{
+
+        .time-img {
             width: 100%;
             max-width: 300px;
             margin: 20px auto;
             display: block;
         }
 
+        .img-title {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        figcaption {
+            width: 60%;
+            font: italic smaller sans-serif;
+            padding: 3px;
+            text-align: center;
+            margin: auto;
+        }
+
+        p.intro {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 880px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .flight-steps {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .flight-steps.show {
+                display: flex;
+            }
+
+            .flight-steps a {
+                padding: 0.5rem 1rem;
+                background: #2a2a2a;
+                border-radius: 8px;
+            }
+
+            .flight-steps {
+                gap: 0.5rem;
+            }
+
+            .back-home {
+                margin-right: 1rem;
+            }
+
+            .nav-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .actor-preview{
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                align-items: center;
+                gap: 1vh;
+            }
+
+        }
     </style>
 </head>
 
 <body>
     <header>
         <a class="back-home" href="index.html">&larr; Accueil</a>
+        <button class="burger" onclick="toggleMenu()">☰</button>
         <nav class="flight-steps">
             <a class="step active" href="decollage.html"><i>🛫</i> Décollage</a>
             <a class="step" href="reperage.html"><i>🚁</i> Repérages</a>
@@ -328,27 +432,46 @@
 
     <section>
         <h1 class="section-title">Une technologie en altitude, des enjeux au sol.</h1>
-        <p>Bienvenue dans l'univers de la surveillance par drones aux frontières.</p>
-        <p class="quote-floating">"Les frontières ne sont plus seulement géographiques, elles sont technologiques."</p>
+        <img src="drone-model.jpg" alt="Image de Drone militaire en vol"
+            style="width:100%; max-width:600px; display:block; margin:auto;">
     </section>
 
     <section id="contexte">
         <h2>Pourquoi des drones ?</h2>
 
-        <p>
-            Face à l'augmentation des flux migratoires en Méditerranée, l’Italie a renforcé sa surveillance grâce aux
-            drones. Initialement issus de la technologie militaire, ces outils ont été adaptés à un usage civil dès les
-            années 2000, notamment par la Marine italienne. Leur efficacité, leur autonomie et leurs faibles coûts ont
-            permis leur déploiement massif dans les politiques migratoires.
+        <p class="intro">
+            &nbsp;&nbsp;&nbsp;Dans un monde où les frontières ne se limitent plus à des murs ou des barrières physiques,
+            la surveillance
+            aérienne s'impose comme une solution moderne et efficace. Les drones, ces aéronefs sans pilote, offrent une
+            capacité d'observation inégalée, permettant une couverture étendue et une réactivité accrue face aux menaces
+            potentielles.
         </p>
-        <p>
-            Depuis 2015, leur usage s’est intensifié, appuyé par des technologies de pointe (caméras thermiques, IA) et
-            des coopérations européennes via Frontex. Cependant, cette dépendance technologique soulève des controverses
-            : déshumanisation de la migration, surveillance permanente, risques juridiques.
+        <p class="intro">
+            &nbsp;&nbsp;&nbsp;Mais pourquoi recourir spécifiquement aux drones pour la surveillance des frontières ?
         </p>
-        <p>
-            Ces choix techniques reflètent un dilemme politique et éthique : comment concilier sécurité nationale et
-            respect des droits humains ?
+        <p class="intro">
+            &nbsp;&nbsp;&nbsp;Les drones permettent une surveillance en temps réel de vastes zones, y compris des
+            terrains difficiles
+            d'accès, offrant ainsi une vue d'ensemble que les moyens traditionnels peinent à égaler. Leur flexibilité
+            opérationnelle, associée à des technologies avancées telles que les caméras haute définition et les capteurs
+            thermiques, les rend indispensables pour détecter des activités suspectes, surveiller les mouvements de
+            populations ou encore intervenir rapidement en cas d'incident.
+        </p>
+        <p class="intro">
+            &nbsp;&nbsp;&nbsp;Cependant, l'utilisation des drones soulève également des questions cruciales. Sur le plan
+            juridique, leur
+            déploiement doit respecter les principes de nécessité et de proportionnalité, garantissant ainsi le respect
+            de la vie privée et des libertés individuelles. Des décisions judiciaires récentes, comme celle du Conseil
+            d'État français, ont rappelé l'importance de justifier l'usage de ces technologies face à des alternatives
+            moins intrusives.
+        </p>
+        <p class="intro">
+            &nbsp;&nbsp;&nbsp;Au travers de cette expérience, nous vous invitons à "embarquer" à bord d'un drone pour
+            une mission de
+            surveillance aux frontières. Vous découvrirez les aspects techniques de ces appareils, les enjeux légaux qui
+            encadrent leur utilisation, ainsi que les perspectives offertes par les organisations telles que Frontex.
+            Vous explorerez également les points de vue des ONG, des forces de l'ordre et des industriels impliqués dans
+            ce domaine. Préparez-vous à une immersion complète dans l'univers fascinant de la surveillance par drone.
         </p>
 
         <div class="stats">
@@ -365,8 +488,19 @@
                 <p>Missions de drone annuelles</p>
             </div>
         </div>
+        <figure>
+            <h3 class="img-title">Budget annuel de Frontex</h3>
+            <img src="budget.png" alt="Infographie des opérations de drones"
+                style="width:100%; max-width:600px; display:block; margin:20px auto 20px auto;">
+            <figcaption>Source : Commission des lois, à partir du rapport spécial de la Cour des comptes européenne
+                du 7 juin 2021 et des données publiées par Frontex </figcaption>
+        </figure>
+
         <blockquote>
-            "La technologie dépasse les lignes, elle redessine le territoire."
+            "Les drones de surveillance sont très différents des caméras de surveillance fixes : ils sont extrêmement
+            intrusifs, ils sont mobiles, peuvent se déplacer discrètement dans le ciel, suivre une personne, filmer une
+            foule et même, incidemment, filmer l’intérieur d’un bâtiment par la fenêtre."
+            <footer>- Amnesty International</footer>
         </blockquote>
         <img src="infographie.jpg" alt="Infographie des opérations de drones"
             style="width:100%; max-width:600px; display:block; margin:auto;">
@@ -381,8 +515,13 @@
             <img src="thales.png" alt="Thalès">
             <img src="amnesty.png" alt="ONG">
         </div>
-        <p>Des rôles interdépendants se croisent aux frontières européennes. Derrière chaque vol de drone, une chaîne
-            d’acteurs aux intérêts parfois divergents.</p>
+        <h2>Des regards croisés sur un même ciel</h2>
+        <p>Policiers aux frontières, opérateurs de Frontex, industriels de l’armement, start-up high-tech, ONG de
+            défense des droits humains, réfugiés et migrants : tous gravitent autour de ces drones qui scrutent les
+            frontières. Les uns conçoivent, d’autres pilotent, certains dénoncent. Ce sont des logiques de sécurité,
+            d’innovation, d’humanité qui s’entrechoquent dans ce théâtre aérien. En explorant ces visages, on découvre
+            que la surveillance par drone n’est pas qu’une question de technologie — c’est aussi une question de
+            société.</p>
     </section>
 
 
@@ -408,7 +547,7 @@
                     enfreindre le RGPD, notamment si les données sont biométriques.</p>
             </div>
 
-            <button class="faq-question">
+            <!--<button class="faq-question">
                 <span class="faq-label">Quel est exactement le rôle de Frontex ?</span>
                 <span class="arrow">▼</span>
             </button>
@@ -416,7 +555,7 @@
                 <p>Frontex coordonne la surveillance des frontières extérieures de l'UE. Elle fournit des moyens
                     matériels comme les drones, mais fait l’objet de critiques pour son manque de transparence et des
                     accusations de refoulements illégaux.</p>
-            </div>
+            </div>-->
 
             <button class="faq-question">
                 <span class="faq-label">Les drones sont-ils utilisés pour secourir en mer ?</span>
@@ -475,7 +614,7 @@
         "🌊 <strong>2000 :</strong> Tests de surveillance maritime par la marine italienne. </br><img class='time-img' src='ital.jpg'>",
         "🚢 <strong>2015 :</strong> Intensification liée à la 'crise migratoire' en Méditerranée.</br><img class='time-img' src='bateau.jpeg'>",
         "🧑‍⚖️ <strong>2018 :</strong> Premiers rapports d’ONG sur la surveillance déshumanisante.</br><img class='time-img' src='surv.jpg'>",
-        "🔍 <strong>2020 :</strong> Conseil de l’Europe alerte sur les atteintes à la vie privée.</br><img class='time-img' src='conseil.png'>",
+        "🔍 <strong>2020 :</strong> Le Conseil de l’Europe alerte sur les atteintes à la vie privée.</br><img class='time-img' src='conseil.png'>",
         "📜 <strong>2021 :</strong> Réglementation italienne renforcée (usage zones urbaines).</br><img class='time-img' src='loi.jpeg'>",
         "⚖️ <strong>2022-2023 :</strong> Le Parlement européen exige plus de transparence et de respect des droits fondamentaux.</br><img class='time-img' src='parl.jpg'>"
     ];
@@ -519,7 +658,15 @@
             }
         });
     });
+
+    function toggleMenu() {
+        const menu = document.querySelector('.flight-steps');
+        menu.classList.toggle('show');
+    }
+
 </script>
+
+
 
 
 
