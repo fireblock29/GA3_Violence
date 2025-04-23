@@ -25,6 +25,8 @@
             background-color: #f4f4f4;
         }
 
+        
+
         header {
             background: #1a1a1a;
             color: white;
@@ -355,6 +357,11 @@
             text-justify: inter-word;
         }
 
+        .justify{
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
         .burger {
             display: none;
             background: none;
@@ -362,6 +369,37 @@
             color: white;
             font-size: 2rem;
             cursor: pointer;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dashed #111;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: left;
+            border-radius: 5px;
+            padding: 8px 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            /* Place au-dessus */
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
 
         @media (max-width: 880px) {
@@ -405,7 +443,8 @@
                 flex-direction: column;
                 align-items: center;
             }
-            .actor-preview{
+
+            .actor-preview {
                 display: flex;
                 flex-direction: column;
                 margin: auto;
@@ -443,8 +482,8 @@
             &nbsp;&nbsp;&nbsp;Dans un monde où les frontières ne se limitent plus à des murs ou des barrières physiques,
             la surveillance
             aérienne s'impose comme une solution moderne et efficace. Les drones, ces aéronefs sans pilote, offrent une
-            capacité d'observation inégalée, permettant une couverture étendue et une réactivité accrue face aux menaces
-            potentielles.
+            capacité d'observation inégalée, permettant une couverture étendue et une réactivité accrue face aux 
+            <span class="tooltip">menaces potentielles<span class="tooltiptext">Intrusions illégales, contrebande, surveillance hostile, sabotage, tensions géopolitiques, ...</span>
         </p>
         <p class="intro">
             &nbsp;&nbsp;&nbsp;Mais pourquoi recourir spécifiquement aux drones pour la surveillance des frontières ?
@@ -461,40 +500,34 @@
             &nbsp;&nbsp;&nbsp;Cependant, l'utilisation des drones soulève également des questions cruciales. Sur le plan
             juridique, leur
             déploiement doit respecter les principes de nécessité et de proportionnalité, garantissant ainsi le respect
-            de la vie privée et des libertés individuelles. Des décisions judiciaires récentes, comme celle du Conseil
-            d'État français, ont rappelé l'importance de justifier l'usage de ces technologies face à des alternatives
+            de la vie privée et des libertés individuelles. Des décisions judiciaires récentes, comme celle du 
+            <span class="tooltip">Conseil d'État<span class="tooltiptext">Plus haute juridiction administrative en France dont la mission est de conseiller le gouvernement et de juger les litiges entre les citoyens et l'administration. Il veille notamment à ce que les décisions de l'administration respectent les droits fondamentaux et les principes de légalité.</span></span>
+            français, ont rappelé l'importance de justifier l'usage de ces technologies face à des alternatives
             moins intrusives.
         </p>
         <p class="intro">
             &nbsp;&nbsp;&nbsp;Au travers de cette expérience, nous vous invitons à "embarquer" à bord d'un drone pour
             une mission de
             surveillance aux frontières. Vous découvrirez les aspects techniques de ces appareils, les enjeux légaux qui
-            encadrent leur utilisation, ainsi que les perspectives offertes par les organisations telles que Frontex.
+            encadrent leur utilisation, ainsi que les perspectives offertes par les organisations telles que <span class="tooltip">Frontex<span class="tooltiptext">Agence
+                Européenne en charge de la surveillance des frontières.<br>Voir présentation en page
+                suivante.</span></span>.
             Vous explorerez également les points de vue des ONG, des forces de l'ordre et des industriels impliqués dans
-            ce domaine. Préparez-vous à une immersion complète dans l'univers fascinant de la surveillance par drone.
+            ce domaine. Préparez-vous à une immersion dans l'univers fascinant de la surveillance par drone.
         </p>
 
         <div class="stats">
             <div class="stat-block">
-                <h3>922M€</h3>
-                <p>Budget Frontex 2024</p>
-            </div>
-            <div class="stat-block">
-                <h3>~13 000 km</h3>
-                <p>Frontières terrestres à surveiller</p>
+                <h3>+14 000 km</h3>
+                <p>Frontières terrestres européennes à surveiller</p>
             </div>
             <div class="stat-block">
                 <h3>243</h3>
                 <p>Missions de drone annuelles</p>
             </div>
         </div>
-        <figure>
-            <h3 class="img-title">Budget annuel de Frontex</h3>
-            <img src="budget.png" alt="Infographie des opérations de drones"
-                style="width:100%; max-width:600px; display:block; margin:20px auto 20px auto;">
-            <figcaption>Source : Commission des lois, à partir du rapport spécial de la Cour des comptes européenne
-                du 7 juin 2021 et des données publiées par Frontex </figcaption>
-        </figure>
+
+        <br>
 
         <blockquote>
             "Les drones de surveillance sont très différents des caméras de surveillance fixes : ils sont extrêmement
@@ -514,7 +547,10 @@
             <img src="amnesty.png" alt="ONG">
         </div>
         <h2>Des regards croisés sur un même ciel</h2>
-        <p>Policiers aux frontières, opérateurs de Frontex, industriels de l’armement, start-up high-tech, ONG de
+        <p class="justify">&nbsp;&nbsp;&nbsp;Policiers aux frontières, opérateurs de <span class="tooltip">Frontex<span class="tooltiptext">Agence
+                    Européenne en charge de la surveillance des frontières.<br>Voir présentation en page
+                    suivante.</span>
+            </span>, industriels de l’armement, start-up high-tech, ONG de
             défense des droits humains, réfugiés et migrants : tous gravitent autour de ces drones qui scrutent les
             frontières. Les uns conçoivent, d’autres pilotent, certains dénoncent. Ce sont des logiques de sécurité,
             d’innovation, d’humanité qui s’entrechoquent dans ce théâtre aérien. En explorant ces visages, on découvre
@@ -532,8 +568,8 @@
                 <span class="arrow">▼</span>
             </button>
             <div class="faq-answer">
-                <p>Le non-refoulement interdit de renvoyer une personne vers un pays où elle risque torture,
-                    persécutions ou traitements inhumains, selon la Convention de Genève de 1951.</p>
+                <p>Le non-refoulement interdit le "pushback", ou le fait de renvoyer une personne vers un pays où elle risque torture,
+                    persécutions ou traitements inhumains. C'est un principe figurant dans la Convention de Genève de 1951.</p>
             </div>
 
             <button class="faq-question">
@@ -542,7 +578,11 @@
             </button>
             <div class="faq-answer">
                 <p>Oui, et cela soulève des inquiétudes. S'ils filment des individus sans leur consentement, cela peut
-                    enfreindre le RGPD, notamment si les données sont biométriques.</p>
+                    enfreindre le 
+                    <span class="tooltip">RGPD<span class="tooltiptext">Le Règlement Général sur la Protection des Données est une réglementation européenne entrée en vigueur en 2018, visant à encadrer la collecte, le traitement et le stockage des données personnelles des individus au sein de l'Union européenne. ​</span></span>
+                    , notamment si les données sont 
+                    <span class="tooltip">biométriques<span class="tooltiptext">ADN, empreintes digitales, contour de la main, visage, ... ​</span></span>
+                    .</p>
             </div>
 
             <!--<button class="faq-question">
@@ -611,10 +651,10 @@
         "🛩️ <strong>Années 1990 :</strong> Premiers drones militaires développés.</br><img class='time-img' src='drone.jpeg'>",
         "🌊 <strong>2000 :</strong> Tests de surveillance maritime par la marine italienne. </br><img class='time-img' src='ital.jpg'>",
         "🚢 <strong>2015 :</strong> Intensification liée à la 'crise migratoire' en Méditerranée.</br><img class='time-img' src='bateau.jpeg'>",
-        "🧑‍⚖️ <strong>2018 :</strong> Premiers rapports d’ONG sur la surveillance déshumanisante.</br><img class='time-img' src='surv.jpg'>",
-        "🔍 <strong>2020 :</strong> Le Conseil de l’Europe alerte sur les atteintes à la vie privée.</br><img class='time-img' src='conseil.png'>",
-        "📜 <strong>2021 :</strong> Réglementation italienne renforcée (usage zones urbaines).</br><img class='time-img' src='loi.jpeg'>",
-        "⚖️ <strong>2022-2023 :</strong> Le Parlement européen exige plus de transparence et de respect des droits fondamentaux.</br><img class='time-img' src='parl.jpg'>"
+        "🧑‍⚖️ <strong>2018 :</strong> Premiers <span class='tooltip'>rapports d'ONG<span class='tooltiptext'>Amnesty International – Rapport annuel 2017/2018​</span></span> sur la surveillance déshumanisante.</br><img class='time-img' src='surv.jpg'>",
+        "🔍 <strong>2020 :</strong> Le <span class='tooltip'>Conseil de l'Europe<span class='tooltiptext'>Organisation internationale fondée en 1949, indépendante de l'Union européenne, qui œuvre à promouvoir les droits de l'homme, la démocratie et l'État de droit en Europe. ​</span></span> alerte sur les atteintes à la vie privée.</br><img class='time-img' src='conseil.png'>",
+        "📜 <strong>2021 :</strong> Réglementation italienne <span class='tooltip'>renforcée<span class='tooltiptext'>En 2021, l'Italie a renforcé sa réglementation sur l'utilisation des drones de surveillance en milieu urbain, en alignement avec le règlement européen UE 2019/947. L'ENAC (Ente Nazionale Aviazione Civile) a mis en place des restrictions spécifiques pour encadrer ces opérations sensibles : autorisation préalable nécessaire, restriction d'altitude, interdiction de survol de certaines zones, ... ​</span></span>.</br><img class='time-img' src='loi.jpeg'>",
+        "⚖️ <strong>2022-2023 :</strong> Le <span class='tooltip'>Parlement Européen<span class='tooltiptext'>Institution législative de l'Union Européenne, représentant les citoyens et participant à l'élaboration des lois européennes.​</span></span> exige plus de transparence et de respect des droits fondamentaux.</br><img class='time-img' src='parl.jpg'>"
     ];
 
     const contentDiv = document.getElementById('timeline-content');

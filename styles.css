@@ -389,8 +389,8 @@ blockquote {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #222;
-    color: white;
+    background-color: #eeeeee;
+    color: black;
     border-radius: 50%;
     width: 40px;
     height: 40px;
