@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Décollage - Cartographie des Controverses</title>
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
 
@@ -157,6 +160,8 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
         }
 
         .hero button:hover {
@@ -786,7 +791,7 @@
 
     <h1 class="main-title tagesschrift-regular">UNE TECHNOLOGIE EN ALTITUDE, DES ENJEUX AU SOL</h1>
 
-    <section id="contexte">
+    <section id="contexte" data-aos="fade-up">
         <h2>Pourquoi des drones ?</h2>
 
         <div class="horizontal">
@@ -855,7 +860,7 @@
 
         <br>
 
-        <div class="stats">
+        <div class="stats" data-aos="fade-up">
             <div class="stat-block">
                 <h3>+14 000 km</h3>
                 <p>Frontières terrestres européennes à surveiller</p>
@@ -868,7 +873,7 @@
 
         <br>
 
-        <blockquote class="amnesty-quote">
+        <blockquote class="amnesty-quote" data-aos="fade-up">
             "Les drones de surveillance sont très différents des caméras de surveillance fixes : ils sont extrêmement
             intrusifs, ils sont mobiles, peuvent se déplacer discrètement dans le ciel, suivre une personne, filmer une
             foule et même, incidemment, filmer l’intérieur d’un bâtiment par la fenêtre."
@@ -877,7 +882,7 @@
     </section>
 
 
-    <section class="actors-section">
+    <section class="actors-section" data-aos="fade-up">
         <h2 class="section-title reduce">🌐 Qui surveille ? Qui est surveillé ? Qui conçoit ? Qui dénonce ?</h2>
 
         <div class="actor-orbit">
@@ -888,7 +893,7 @@
                 <div class="floating-img img4"><img src="amnesty.png" alt="ONG"></div>
             </div>
 
-            <div class="central-text">
+            <div class="central-text" data-aos="fade-up">
                 <h2>Des regards croisés sur un même ciel</h2>
                 <p class="justify">
                     &nbsp;&nbsp;&nbsp;Policiers aux frontières, opérateurs de
@@ -910,7 +915,7 @@
 
 
 
-    <section>
+    <section data-aos="fade-up">
         <h2 class="section-title">🔍 Le saviez-vous ?</h2>
 
         <div class="faq-container" style="max-width: 800px; margin: auto;">
@@ -954,7 +959,7 @@
         </div>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
         <h2 class="section-title">🕰️ Une frontière sous surveillance : la montée des drones</h2>
 
         <div class="timeline-wrapper">
@@ -1051,6 +1056,16 @@
     }
 
 </script>
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
 
 
 
