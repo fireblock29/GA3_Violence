@@ -5,14 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repérage - Acteurs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
+
         :root {
-            --accent: #00bcd4;
+            --accent: #5B9A8B;
             --bg: #0f1c2e;
             --text: #f0f0f0;
             --muted: #a0a0a0;
             --card-bg: #19283f;
+        }
+
+        .tagesschrift-regular {
+            font-family: "Tagesschrift", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .justify {
+            text-align: justify;
+            text-justify: inter-word;
         }
 
         html {
@@ -22,22 +37,32 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #faf3c8;
+            padding-top: 80px;
         }
 
-        header {
-            background: #1a1a1a;
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
+        
         .legend-text {
             font-size: 3vw;
             max-width: 50%;
 
+        }
+
+        header {
+            background: #252B48;
+            color: white;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header a {
+            padding-left: 1rem;
         }
 
         .back-home {
@@ -47,10 +72,28 @@
             font-size: 1.2rem;
         }
 
+        .section-title {
+            padding: 0.2rem 1rem 2rem;
+            font-size: 4vw;
+            letter-spacing: 1px;
+        }
+
+        .main-title {
+            text-align: center;
+            padding: 0.2rem 0rem 2rem;
+            margin: auto;
+            font-size: 4vw;
+            letter-spacing: 1px;
+            width: 100%;
+            background-color: #252B48;
+            color: #F7E987
+        }
+
         .flight-steps {
             display: flex;
             gap: 2rem;
             align-items: center;
+            padding-right: 2rem;
         }
 
         .step {
@@ -59,13 +102,13 @@
             align-items: center;
             text-align: center;
             color: white;
-            opacity: 0.6;
             transition: opacity 0.3s;
         }
 
         .step.active {
             opacity: 1;
             font-weight: bold;
+            color: #F7E987;
         }
 
         .step i {
@@ -74,10 +117,16 @@
         }
 
         .section-title {
-            text-align: center;
             padding: 3rem 1rem 2rem;
             font-size: 1rem;
             letter-spacing: 1px;
+        }
+
+        .section-title p {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #333;
+            font-size: 1.2rem;
         }
 
         .map-section {
@@ -186,7 +235,7 @@
         /* Info sur l'acteur cliqué */
         .actor-info {
             display: none;
-            background-color: #19283f;
+            background-color: #252B48;
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
@@ -230,8 +279,8 @@
             background-color: #00acc1;
         }
 
-        footer {
-            background: #1a1a1a;
+        body>footer {
+            background: #252B48;
             color: white;
             text-align: center;
             padding: 2rem 1rem;
@@ -276,6 +325,23 @@
             visibility: visible;
             opacity: 1;
         }
+
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (min-width: 1300px) {
+
+.main-title,
+.section-title {
+    font-size: 2.5rem;
+}
+}
 
         @media (max-width: 880px) {
             .map-section {
@@ -337,9 +403,6 @@
                 align-items: center;
             }
 
-            #frontex-info {
-                background-color: #ff9688;
-            }
         }
     </style>
 </head>
@@ -347,18 +410,20 @@
 <body>
     <header>
         <a class="back-home" href="index.html">&larr; Accueil</a>
+        <button class="burger" onclick="toggleMenu()">☰</button>
         <nav class="flight-steps">
-            <a class="step" href="decollage.html"><i>🛫</i> Repérages</a>
-            <a class="step active" href="reperage.html"><i>🚁</i> Survol</a>
+            <a class="step" href="decollage.html"><i>🛫</i> Décollage</a>
+            <a class="step active" href="reperage.html"><i>🚁</i> Repérages</a>
             <a class="step" href="survol-tactique.html"><i>🔎</i> Tactique</a>
             <a class="step" href="podcast.html"><i>🎧</i> Transmission</a>
-            <a class="step" href="atterrissage2.html"><i>⚖️</i> Atterrissage</a>
+            <a class="step" href="atterrissage.html"><i>⚖️</i> Atterrissage</a>
         </nav>
     </header>
 
+    <h1 class="main-title">ACTEURS SUR LA CARTE</h1>
 
-    <div class="section-title">
-        <h1>Acteurs sur la carte</h1>
+
+    <div class="section-title justify">
         <p>Sur notre trajectoire, plusieurs acteurs apparaissent. Publics ou privés, nationaux ou transnationaux, ils
             jouent chacun un rôle dans la gestion, la surveillance ou la contestation des frontières.</p>
     </div>
@@ -389,14 +454,18 @@
         </div>
         <div class="actor-info" id="frontex-info">
             <h3>Frontex</h3>
-            <p>🔴 Acteur Gouvernemental</p>
+            <p>🔴 Surveillant</p>
             <br>
             <p><strong>Localisation :</strong> Varsovie, Pologne</p>
             <p><strong>Statut :</strong> Agence européenne</p>
             <p><strong>Rôle :</strong> Coordination de la surveillance aux frontières extérieures de l'UE</p>
-            <p><strong>Technologies :</strong> 
-                <span class="tooltip">Drone Heron<span class="tooltiptext">Drones israéliens utilisés pour la surveillance et la collecte de renseignements. Frontex, l'agence européenne de garde-frontières, a signé un contrat avec Airbus pour le déploiement et la maintenance de ces drones afin de renforcer la surveillance des frontières extérieures de l'UE. ​</span></span>
-                , capteurs thermiques, systèmes d'analyse d'image</p>
+            <p><strong>Technologies :</strong>
+                <span class="tooltip">Drone Heron<span class="tooltiptext">Drones israéliens utilisés pour la
+                        surveillance et la collecte de renseignements. Frontex, l'agence européenne de garde-frontières,
+                        a signé un contrat avec Airbus pour le déploiement et la maintenance de ces drones afin de
+                        renforcer la surveillance des frontières extérieures de l'UE. ​</span></span>
+                , capteurs thermiques, systèmes d'analyse d'image
+            </p>
             <p><strong>Contexte :</strong> Acteur central dans le déploiement technologique à grande échelle. L’agence
                 fournit drones, financement, et expertise logistique à l’Italie dans le cadre du programme Eurosur. Elle
                 est critiquée pour les pushbacks illégaux et un manque de transparence.</p>
@@ -409,13 +478,15 @@
             </figure>
             <br>
             <p>
-                Le budget de Frontex a connu une croissance significative, montant jusqu'à <strong>922 millions d'euros en 2024</strong> . Cette augmentation reflète les besoins croissants en matière de gestion des frontières extérieures de l'Union européenne.
+                Le budget de Frontex a connu une croissance significative, montant jusqu'à <strong>922 millions d'euros
+                    en 2024</strong> . Cette augmentation reflète les besoins croissants en matière de gestion des
+                frontières extérieures de l'Union européenne.
             </p>
         </div>
 
         <div class="actor-info" id="paf-info">
             <h3>Police aux Frontières</h3>
-            <p>🔴 Acteur Gouvernemental</p>
+            <p>🔴 Surveillant</p>
             <br>
             <p><strong>Localisation :</strong> Alpes-Maritimes, France</p>
             <p><strong>Statut :</strong> Forces de l'ordre</p>
@@ -428,7 +499,7 @@
 
         <div class="actor-info" id="migrants-info">
             <h3>Migrants</h3>
-            <p>🟡 Victimes</p>
+            <p>🟡 Surveillés</p>
             <br>
             <p><strong>Localisation :</strong> Méditerranée</p>
             <p><strong>Statut :</strong> Acteurs en mouvement</p>
@@ -442,7 +513,7 @@
 
         <div class="actor-info" id="thales-info">
             <h3>Thalès</h3>
-            <p>🟢 Acteur Technologique et Industriel</p>
+            <p>🟢 Concepteur</p>
             <br>
             <p><strong>Localisation :</strong> Paris, France</p>
             <p><strong>Statut :</strong> Entreprise privée</p>
@@ -454,7 +525,7 @@
         </div>
         <div class="actor-info" id="ONG-info">
             <h3>ONG</h3>
-            <p>🔵 Acteur Humanitaire</p>
+            <p>🔵 Défenseur des droits</p>
             <br>
             <p><strong>Localisation :</strong> France</p>
             <p><strong>Organismes :</strong> Amnesty international, ANAFE</p>
@@ -498,6 +569,11 @@
             actorInfo.style.display = 'block';
         }
         showActorInfo("default")
+
+        function toggleMenu() {
+            const menu = document.querySelector('.flight-steps');
+            menu.classList.toggle('show');
+        }
     </script>
 </body>
 
