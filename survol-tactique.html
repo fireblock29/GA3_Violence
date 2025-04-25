@@ -165,7 +165,7 @@
             animation: fadeIn 0.4s ease-in-out;
         }
 
-        .mission-content.active{
+        .mission-content.active {
             display: block;
         }
 
@@ -253,6 +253,132 @@
             padding: 2rem 1rem;
         }
 
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 880px) {
+            body {
+                padding-top: 90px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .flight-steps {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .flight-steps.show {
+                display: flex;
+            }
+
+            .flight-steps a {
+                padding: 0.5rem 1rem;
+                background: #2a2a2a;
+                border-radius: 8px;
+            }
+
+            .flight-steps {
+                gap: 0.5rem;
+            }
+
+            .back-home {
+                margin-right: 1rem;
+            }
+
+            .nav-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .actor-preview {
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                align-items: center;
+                gap: 1vh;
+            }
+
+            .actor-section {
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 2rem 1rem;
+                min-height: auto;
+            }
+
+            .actor-orbit {
+                width: 100%;
+            }
+
+            .imgs {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            .actor-preview {
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+                width: 100%;
+                pointer-events: auto;
+            }
+
+            .floating-img {
+                position: static;
+                animation: none;
+                width: 70px;
+                height: 70px;
+            }
+
+            .text-container {
+                max-width: 100%;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .img1,
+            .img2,
+            .img3,
+            .img4 {
+                position: static;
+                display: inline-block;
+                margin: 10px;
+            }
+
+            .actor-orbit {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 0;
+            }
+
+        }
+
         @media (min-width: 1300px) {
 
             .main-title,
@@ -266,10 +392,11 @@
 <body>
     <header>
         <a class="back-home" href="index.html">&larr; Accueil</a>
+        <button class="burger" onclick="toggleMenu()">☰</button>
         <nav class="flight-steps">
-            <a class="step" href="decollage.html"><i>🛫</i> Décollage</a>
+            <a class="step active" href="decollage.html"><i>🛫</i> Décollage</a>
             <a class="step" href="reperage.html"><i>🚁</i> Repérages</a>
-            <a class="step active" href="survol-tactique.html"><i>🔎</i> Tactique</a>
+            <a class="step" href="survol-tactique.html"><i>🔎</i> Tactique</a>
             <a class="step" href="podcast.html"><i>🎧</i> Transmission</a>
             <a class="step" href="atterrissage.html"><i>⚖️</i> Atterrissage</a>
         </nav>
@@ -315,7 +442,7 @@
         <blockquote>“Le drone, c’est comme une patrouille silencieuse. Mais il ne remplacera jamais l’œil du flic dans
             le col.” – Responsable PAF</blockquote>
     </div>
-    
+
 
     <div id="2015" class="mission-content">
         <h3> Mission : Répondre à l'augmentation soudaine des flux migratoires</h3>
@@ -336,30 +463,44 @@
 
     <div id="eurosur" class="mission-content">
         <h3> Mission : Déploiement du programme Eurosur (European Border Surveillance System) par Frontex </h3>
-        <p><strong>Description :</strong> À la suite de la crise migratoire de 2015, l'Union Européenne a mis en place le programme Eurosur, piloté par Frontex. Il vise à surveiller les frontières extérieures de l'UE de manière coordonnée et en temps réel, et à créer une base de données commune sur les flux migratoires pour coordonner des pushbacks.</p>
-        <img src="eurosur-img.jpg" alt="Garde-frontières observant le littoral avec des équipements de surveillance dans le cadre du projet Eurosur" style="width: 100%;" />
+        <p><strong>Description :</strong> À la suite de la crise migratoire de 2015, l'Union Européenne a mis en place
+            le programme Eurosur, piloté par Frontex. Il vise à surveiller les frontières extérieures de l'UE de manière
+            coordonnée et en temps réel, et à créer une base de données commune sur les flux migratoires pour coordonner
+            des pushbacks.</p>
+        <img src="eurosur-img.jpg"
+            alt="Garde-frontières observant le littoral avec des équipements de surveillance dans le cadre du projet Eurosur"
+            style="width: 100%;" />
         <p><strong>Acteurs impliqués & rôles :</strong> </p>
         <ul>
-            <li><strong>Frontex :</strong> Fournit les équipements (drones, radars, satellites, ...) et coordonne la collecte des données.</li>
-            <li><strong>Les États membres de l'UE :</strong> Utilisent les données pour renforcer les contrôles et déclencher des actions rapides.</li>
-            <li><strong>ONG :</strong> Alertent sur l'opacité des opérations et le manque de transparence sur les données collectées.</li>
+            <li><strong>Frontex :</strong> Fournit les équipements (drones, radars, satellites, ...) et coordonne la
+                collecte des données.</li>
+            <li><strong>Les États membres de l'UE :</strong> Utilisent les données pour renforcer les contrôles et
+                déclencher des actions rapides.</li>
+            <li><strong>ONG :</strong> Alertent sur l'opacité des opérations et le manque de transparence sur les
+                données collectées.</li>
         </ul>
     </div>
-    
+
 
     <div id="paf" class="mission-content">
         <h3> Mission : Repérer les passages clandestins dans les zones de montagne </h3>
-        <p><strong>Description :</strong> Dans les régions alpines, les drones sont utilisés pour survoler les cols de montagne afin de repérer les passages clandestins de migrants. Ces vols permettent à la PAF d’anticiper les trajectoires et d'intervenir rapidement. Les conditions climatiques rendent les traversées dangereuses, et les drones renforcent une logique de dissuasion plutôt que de protection.</p>
+        <p><strong>Description :</strong> Dans les régions alpines, les drones sont utilisés pour survoler les cols de
+            montagne afin de repérer les passages clandestins de migrants. Ces vols permettent à la PAF d’anticiper les
+            trajectoires et d'intervenir rapidement. Les conditions climatiques rendent les traversées dangereuses, et
+            les drones renforcent une logique de dissuasion plutôt que de protection.</p>
         <img src="montagne.jpg" style="width: 100%;" alt="Drone de surveillance en montagne" />
         <p><strong>Acteurs impliqués & rôles :</strong> </p>
         <ul>
             <li><strong>Frontex :</strong> Soutient techniquement dans certaines régions.</li>
-            <li><strong>Police aux frontières (P.A.F.) :</strong> Opère les vols, intercepte les migrants dans les cols.</li>
-            <li><strong>ONG :</strong> Critiquent la pression exercée sur les migrants et dénoncent les conditions climatiques extrêmes qui mettent des vies en danger.</li>
+            <li><strong>Police aux frontières (P.A.F.) :</strong> Opère les vols, intercepte les migrants dans les cols.
+            </li>
+            <li><strong>ONG :</strong> Critiquent la pression exercée sur les migrants et dénoncent les conditions
+                climatiques extrêmes qui mettent des vies en danger.</li>
         </ul>
-        <blockquote>“Les drones nous permettent de découvrir de nouveaux points de passages” – Commissaire divisionnaire de la PAF</blockquote>
+        <blockquote>“Les drones nous permettent de découvrir de nouveaux points de passages” – Commissaire divisionnaire
+            de la PAF</blockquote>
     </div>
-    
+
 
 
     <!-- Boutons de navigation -->
@@ -393,6 +534,13 @@
                 document.getElementById(missionId).classList.add('active');
             });
         });
+    </script>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.flight-steps');
+            menu.classList.toggle('show');
+        }
     </script>
 </body>
 
