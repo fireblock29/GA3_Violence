@@ -91,6 +91,79 @@
       color: #F7E987
     }
 
+    .modal-btn {
+      background-color: #5B9A8B;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 0.8rem 1.5rem;
+      margin: 1rem 0.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .modal-btn:hover {
+      background-color: #40776c;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .modal-scroll {
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      color: #888;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
     .flight-steps {
       display: flex;
       gap: 2rem;
@@ -274,6 +347,11 @@
       cursor: pointer;
     }
 
+    #wrap-btn{
+      display: flex;
+      justify-content: center;
+    }
+
     @media (min-width: 1300px) {
 
       .main-title,
@@ -284,8 +362,8 @@
 
     @media(max-width: 880px) {
       body {
-                padding-top: 90px;
-            }
+        padding-top: 90px;
+      }
 
       header {
         flex-direction: column;
@@ -352,35 +430,126 @@
   </section>
 
   <div class="player">
-    <img src="https://cdn-icons-png.flaticon.com/512/151/151894.png" alt="Micro icon" width="60" />
-    <h3 style="margin: 1rem 0 0.5rem;">Episode 1 : Voix de terrain</h3>
+    <img src="mic.png" alt="Icône micro" width="60" />
+    <h2 style="margin: 1rem 0 0;">Podcast : <strong>Frontières</strong></h2>
+    <h3 style="margin: 0.5rem 0 1rem;"><em>La frontière franco-italienne</em></h3>
     <audio controls>
       <source src="votre-podcast.mp3" type="audio/mp3">
-      Votre navigateur ne supporte pas l'&eacute;coute audio.
+      Votre navigateur ne supporte pas l'écoute audio.
     </audio>
   </div>
+  
 
-  <div class="notes">
+  <div class="notes justify">
     <h3>📓 Notes de l'&eacute;quipe</h3>
-    <p>Nous avons choisi de ne pas enregistrer certains t&eacute;moignages sensibles. Certains r&eacute;pondants ont
-      exprim&eacute; leurs craintes face aux drones, d'autres leur indiff&eacute;rence.</p>
-    <p>Ce podcast tente de restituer fid&egrave;lement les &eacute;motions, sans trahir les paroles recueillies.</p>
+    <p>Dans ce podcast, les voix entendues sont celles des membres de notre équipe. Les personnes interviewées n'ayant pas donné leur accord pour être enregistrées, nous avons choisi de leur "prêter notre voix" en restituant fidèlement leurs propos à partir de nos prises de notes.</p>
   </div>
 
   <div class="transcripts">
     <h3>📜 Transcriptions & documents</h3>
-    <button class="accordion">🔎 Transcription de l'entretien PAF</button>
-    <div class="panel">
-      <p>"Le drone est un outil suppl&eacute;mentaire. Mais ce n’est pas une solution miracle. Il faut &ecirc;tre sur le
-        terrain."</p>
-    </div>
+    <div id="wrap-btn">
+    <button class="modal-btn" onclick="openModal('modalPAF')">🔎 Transcription de l'entretien PAF</button>
+    <button class="modal-btn" onclick="openModal('modalFrontex')">📄 Texte officiel Frontex</button>
+    </div> 
+  </div>
 
-    <button class="accordion">📄 Texte officiel Frontex</button>
-    <div class="panel">
-      <p>Frontex confirme l’usage de cam&eacute;ras thermiques pour le suivi de flux migratoires, tout en respectant la
-        r&eacute;glementation europ&eacute;enne sur la vie priv&eacute;e.</p>
+  <!--MODAL PAF-->
+  <div id="modalPAF" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalPAF')">&times;</span>
+      <h2>🔎 Transcription de l'entretien PAF</h2>
+      <div class="modal-scroll">
+        <p>Entretien réalisé avec le Commissaire Divisionnaire et adjoint à la directrice du SDPAF 06</p>
+
+        <h3>1. Le rôle du commissaire et l’organisation de la PAF</h3>
+        <p>Le Commissaire est en poste depuis le 6 janvier 2024. Il est le N°2 du SDPAF 06, qui comprend environ 500
+          fonctionnaires répartis sur l’ensemble du département. Ce service est notamment responsable du contrôle de la
+          frontière franco-italienne. Le poste de Menton-Garavan est emblématique de cette activité.</p>
+
+        <h3>2. Les missions de la PAF</h3>
+        <p>La mission principale est le contrôle des personnes aux frontières. Cela inclut la lutte contre l’immigration
+          irrégulière, la fraude documentaire, ainsi que la sécurisation du territoire. En cas d’interpellation d’un
+          individu en situation irrégulière, la PAF procède à une vérification d’identité et peut engager une procédure
+          de non-admission ou de réadmission vers l’Italie selon les accords bilatéraux. Les personnes sont ensuite
+          transférées à la frontière et remises aux autorités italiennes si celles-ci acceptent la réadmission.</p>
+
+        <h3>3. Le processus d’interpellation</h3>
+        <p>Les agents de la PAF peuvent procéder à des contrôles sur réquisition du procureur ou dans le cadre des
+          contrôles aux frontières intérieures rétablies depuis 2015 (suite à la crise migratoire et aux attentats).
+          Lorsqu’un migrant est interpellé, il est amené au poste pour une vérification approfondie. Si la personne est
+          mineure, un dispositif spécifique est déclenché avec l’ASE (Aide Sociale à l’Enfance) et les autorités
+          judiciaires.</p>
+
+        <h3>4. Les difficultés rencontrées</h3>
+        <p>Le Commissaire évoque un afflux constant de migrants, notamment dans les zones montagneuses, ce qui complique
+          les interpellations. Les passeurs connaissent bien le terrain et utilisent des chemins difficiles d’accès. La
+          PAF collabore avec la gendarmerie pour surveiller ces itinéraires. Le manque d’effectifs est aussi un problème
+          récurrent.</p>
+
+        <h3>5. Les relations avec les associations et les ONG</h3>
+        <p>Le commissaire indique qu’il existe des tensions avec certaines associations d’aide aux migrants. Il affirme
+          que les agents de la PAF respectent les droits fondamentaux mais que les ONG remettent souvent en cause leurs
+          pratiques. Il déplore une vision partiale et parfois militante des actions policières. Cependant, il reconnaît
+          que des échanges ont lieu avec certaines structures dans un cadre institutionnel (préfecture, conseils
+          départementaux, etc.).</p>
+
+        <h3>6. Les équipements et technologies utilisées</h3>
+        <p>La PAF dispose de moyens techniques pour surveiller les passages, notamment des drones. Elle travaille
+          également avec Frontex, qui fournit un soutien logistique, notamment via des patrouilles mixtes ou du matériel
+          de surveillance. Les données récoltées permettent de mieux anticiper les mouvements de migrants.</p>
+
+        <h3>7. Les mineurs non accompagnés (MNA)</h3>
+        <p>Le traitement des MNA est complexe. Lorsqu’un doute subsiste sur l’âge, une procédure de détermination est
+          lancée (entretiens, tests osseux dans certains cas). La PAF ne peut pas reconduire un mineur à la frontière,
+          sauf si sa minorité est contestée. Les mineurs sont alors confiés à l’ASE. Il existe des suspicions d’adultes
+          se présentant comme mineurs pour éviter l’expulsion.</p>
+
+        <h3>8. La situation à la frontière en 2024</h3>
+        <p>Depuis le début de l’année, la pression migratoire reste forte, notamment du fait de la situation en Afrique
+          de l’Ouest et en Afghanistan. Les traversées via les Alpes-Maritimes se poursuivent, notamment par les
+          sentiers montagneux entre l’Italie et la France. Le SDPAF 06 réalise en moyenne plusieurs centaines de
+          non-admissions par semaine.</p>
+
+        <h3>9. Enjeux humains et personnels</h3>
+        <p>Le Commissaire souligne l’engagement des agents de la PAF, souvent confrontés à des situations humaines
+          complexes. Il mentionne les tensions émotionnelles, le poids des responsabilités, mais aussi la fierté de
+          remplir une mission de service public. Il admet toutefois que le sujet migratoire est politiquement sensible,
+          ce qui peut exposer les agents à des critiques parfois injustes.</p>
+
+        <p><em>Entretien réalisé dans un cadre pédagogique. Les propos retranscrits ici sont issus de notes prises en
+            direct.</em></p>
+      </div>
     </div>
   </div>
+
+
+  <!-- MODAL FRONTEX -->
+  <div id="modalFrontex" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modalFrontex')">&times;</span>
+      <h2>📄 Texte officiel Frontex</h2>
+      <p>Mail reçu du service presse de Frontex</p>
+      <br>
+      <p>🇬🇧 The purpose of using drones in our operations is strictly to support our mandate: enhancing situational
+        awareness, aiding in rescue operations, and countering criminal activities such as trafficking and smuggling.
+        The data gathered helps us protect lives at sea and maintain the security of the EU’s external borders.
+      </p>
+      <p>The technology enables us to detect vessels in distress more quickly, providing timely support to save lives—a
+        core aspect of Frontex’s mission.</p>
+
+        <br>
+        <br>
+
+      <p>🇫🇷 L’utilisation de drones dans nos opérations a pour seul objectif de soutenir notre mandat : améliorer la
+        connaissance de la situation, contribuer aux opérations de sauvetage et lutter contre les activités criminelles
+        telles que le trafic et la contrebande. Les données recueillies nous aident à protéger des vies en mer et à
+        assurer la sécurité des frontières extérieures de l’Union européenne.</p>
+      <p>Cette technologie nous permet de détecter plus rapidement les embarcations en détresse, afin d’apporter une
+        aide en temps utile pour sauver des vies — un aspect central de la mission de Frontex.</p>
+
+    </div>
+  </div>
+
 
   <div class="nav-buttons">
     <a href="survol-tactique.html">← Survol Tactique</a>
@@ -388,8 +557,13 @@
   </div>
 
   <footer>
-    <p>Podcast & voix du terrain – Projet A3 – 2024-2025</p>
-  </footer>
+    <p>Projet étudiant – Cartographie des controverses – 2025</p>
+    <p><strong> Kossi Alain BILOBA,
+            Charles Junior Eithel ESSIMBI EMINI,
+            Lhuisse GUIEMA IBONDZI,
+            Lola LE CLEACH,
+            Lucas PERROT</strong></p>
+</footer>
 
   <script>
     const acc = document.querySelectorAll(".accordion");
@@ -403,6 +577,27 @@
       const menu = document.querySelector('.flight-steps');
       menu.classList.toggle('show');
     }
+  </script>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    // Fermer la modale si on clique en dehors
+    window.onclick = function (event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    };
+
   </script>
 </body>
 
