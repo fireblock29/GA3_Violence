@@ -70,11 +70,93 @@ h1 {
 }
 
 
+/* Style pour la section de contenu superposée */
 .header-content {
-    opacity: 0;
-    transform: translateX(-50%) translateY(20px);
-    animation: fadeInUp 1.5s ease-out forwards;
+    position: absolute; /* Permet de superposer le contenu sur la vidéo */
+    bottom: 20px; /* Centrer la div en bas de l'écran */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(-50%); /* Ajuste pour un centrage parfait horizontalement */
+    text-align: center;
+    color: white; /* Texte blanc pour contraster avec la vidéo */
+    padding: 20px;
+    max-width: 90%; /* Limite la largeur du texte pour éviter qu'il ne soit trop étendu sur petits écrans */
+    z-index: 10; /* Assure que le contenu reste au-dessus de la vidéo */
+    font-family: 'Arial', sans-serif; /* Choix de police élégante */
 }
+
+.header-content h1 {
+    font-size: 2.5rem; /* Taille du titre */
+    line-height: 1.2;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Ombre pour améliorer la lisibilité */
+}
+
+.header-content .subtitle {
+    font-size: 1.2rem; /* Taille plus petite pour le sous-titre */
+    margin-top: 10px;
+    font-style: italic;
+    opacity: 0.8; /* Légère transparence pour le sous-titre */
+}
+
+.header-content .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: #007bff; /* Couleur du bouton */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Effet au survol */
+}
+
+.header-content .btn:hover {
+    background-color: #0056b3; /* Couleur du bouton au survol */
+}
+
+/* Vidéo en arrière-plan */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Couvre tout l'écran sans déformation */
+    z-index: -1; /* Vidéo en arrière-plan */
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2rem; /* Taille plus petite sur les écrans plus petits */
+    }
+
+    .header-content .subtitle {
+        font-size: 1rem; /* Réduction de la taille du sous-titre */
+    }
+
+    .header-content .btn {
+        font-size: 0.9rem; /* Réduit la taille du bouton sur petits écrans */
+        padding: 8px 25px; /* Réduit la taille du bouton */
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 1.5rem; /* Taille du titre encore plus petite sur très petits écrans */
+    }
+
+    .header-content .subtitle {
+        font-size: 0.9rem; /* Réduction de la taille du sous-titre */
+    }
+
+    .header-content .btn {
+        font-size: 0.8rem; /* Réduit la taille du bouton sur très petits écrans */
+        padding: 6px 20px; /* Réduit encore plus la taille du bouton */
+    }
+}
+
 
 @keyframes fadeInUp {
     from {

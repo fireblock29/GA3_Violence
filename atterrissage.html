@@ -25,6 +25,11 @@
       font-style: normal;
     }
 
+    .justify {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
 
     html {
       scroll-behavior: smooth;
@@ -176,77 +181,153 @@
       width: 90%;
     }
 
+    /* ==== CARDS ==== */
     .card {
-      background: #1a1a1a;
-      color: white;
+      background: var(--card-bg);
+      color: var(--text);
       padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      flex: 1 1 350px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      flex: 1 1 300px;
       text-align: center;
-      transition: transform 0.3s;
-      flex-direction: row;
-      max-width: 750px;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
     }
 
     .card h3 {
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
     }
 
+    .card p {
+      color: var(--muted);
+      font-size: 0.95em;
+    }
+
+    /* ==== BOUTONS ==== */
+    button.open-modal {
+      background-color: var(--accent);
+      color: var(--bg);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button.open-modal:hover {
+      background-color: #44806e;
+      /* ton légèrement plus foncé que --accent */
+    }
+
+    /* ==== MODALE ==== */
+    .modal {
+      display: none;
+      /* C'est ici qu'on masque les modales par défaut */
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 28, 46, 0.85);
+      /* var(--bg) avec opacité */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      color: var(--text);
+      padding: 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .modal-content p {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ==== BOUTON FERMER ==== */
+    .close {
+      position: absolute;
+      top: 0.8rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .close:hover {
+      color: var(--text);
+    }
+
+
+
+
+
     .quote-final {
-  background-color: #445069;
-  color: #F7E987;
-  padding: 30px 40px;
-  border-radius: 12px;
-  max-width: 70%;
-  margin: 40px auto;
-  text-align: center;
-  font-family: 'Georgia', serif;
-}
+      background-color: #445069;
+      color: #F7E987;
+      padding: 30px 40px;
+      border-radius: 12px;
+      max-width: 70%;
+      margin: 40px auto;
+      text-align: center;
+      font-family: 'Georgia', serif;
+    }
 
-.quote-final blockquote {
-  font-size: 1.5rem;
-  font-style: italic;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
+    .quote-final blockquote {
+      font-size: 1.5rem;
+      font-style: italic;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
 
-.quote-final blockquote::before {
-  content: "“";
-  font-size: 3rem;
-  position: absolute;
-  left: -20px;
-  top: -10px;
-  color: #F7E987;
-}
+    .quote-final blockquote::before {
+      content: "“";
+      font-size: 3rem;
+      position: absolute;
+      left: -20px;
+      top: -10px;
+      color: #F7E987;
+    }
 
-.quote-final blockquote::after {
-  content: "”";
-  font-size: 3rem;
-  position: absolute;
-  right: -20px;
-  bottom: -10px;
-  color: #F7E987;
-}
+    .quote-final blockquote::after {
+      content: "”";
+      font-size: 3rem;
+      position: absolute;
+      right: -20px;
+      bottom: -10px;
+      color: #F7E987;
+    }
 
-.quote-final p {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 20px;
-  color: #F7E987;
-  text-transform: uppercase;
-}
+    .quote-final p {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #F7E987;
+      text-transform: uppercase;
+    }
 
-.quote-final p strong {
-  font-style: normal;
-  color: #F7E987;
-}
+    .quote-final p strong {
+      font-style: normal;
+      color: #F7E987;
+    }
 
 
     .call-to-action {
@@ -393,153 +474,181 @@
     }
 
     .projection {
-    margin-top: 50px;
-  padding: 0 0 40px;
-  background-color: #252B48;
-  color: #F7E987;
-  text-align: center;
-}
+      margin-top: 50px;
+      padding: 0 0 40px;
+      background-color: #252B48;
+      color: #F7E987;
+      text-align: center;
+    }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #F7E987;
-  text-transform: uppercase;
-}
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #F7E987;
+      text-transform: uppercase;
+    }
 
-.scenarios {
-  display: flex;
-  justify-content: center;
-  gap: 70px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
+    .scenarios {
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
 
-.flip-card {
-  width: 280px;
-  height: 400px;
-  perspective: 1000px; /* Pour l'effet 3D */
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .flip-card {
+      width: 280px;
+      height: 400px;
+      perspective: 1000px;
+      /* Pour l'effet 3D */
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease-in-out;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease-in-out;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
 
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Cache l'arrière lors du flip */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #252B48;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-}
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      /* Cache l'arrière lors du flip */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #252B48;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
 
-.flip-card-front {
-  background-color: #5B9A8B;
-  color: #F7E987;
-}
+    .flip-card-front {
+      background-color: #5B9A8B;
+      color: #F7E987;
+    }
 
-.flip-card-back {
-  background-color: #445069;
-  color: #F7E987;
-  transform: rotateY(180deg);
-}
+    .flip-card-back {
+      background-color: #445069;
+      color: #F7E987;
+      transform: rotateY(180deg);
+    }
 
-.flip-card-front:hover {
-  cursor: pointer;
-  background-color: #F7E987;
-  color: #252B48;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
+    .flip-card-front:hover {
+      cursor: pointer;
+      background-color: #F7E987;
+      color: #252B48;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
 
-.flip-card-back {
-  font-size: 1.2rem;
-  font-weight: normal;
-  line-height: 1.6;
-}
+    .flip-card-back {
+      font-size: 1.2rem;
+      font-weight: normal;
+      line-height: 1.6;
+    }
 
-p.subtitle {
-            max-width: 1200px;
-            margin: 3rem auto !important;
-            color: #333;
-            font-size: 1.2rem;
-        }
+    p.subtitle {
+      max-width: 1200px;
+      margin: 3rem auto !important;
+      color: #333;
+      font-size: 1.2rem;
+    }
 
-.super-text {
-  background-color: #F7E987; /* Fond clair pour contraster avec les sections sombres */
-  color: #252B48; /* Texte foncé pour un contraste élégant */
-  padding: 50px 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 40px auto;
-  max-width: 90%;
-  line-height: 1.6;
-}
+    .super-text {
+      background-color: #F7E987;
+      /* Fond clair pour contraster avec les sections sombres */
+      color: #252B48;
+      /* Texte foncé pour un contraste élégant */
+      padding: 50px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 40px auto;
+      max-width: 90%;
+      line-height: 1.6;
+    }
 
-.super-text p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  font-family: 'Georgia', serif; /* Une police élégante pour accentuer le texte */
-}
+    .super-text p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      font-family: 'Georgia', serif;
+      /* Une police élégante pour accentuer le texte */
+    }
 
-.super-text p span.tooltip {
-  position: relative;
-  border-bottom: 1px dotted #5B9A8B;
-  cursor: pointer;
-  color: #5B9A8B; /* Couleur du mot-clé */
-}
+    /* Tooltip (si tu l’utilises ici aussi) */
+    .tooltip {
+      background-color: #252B48;
+      color: #F7E987;
+      position: relative;
+      cursor: pointer;
+      /* ton bleu moyen */
+      font-weight: 600;
+      border-radius: 5px;
+      /* ton vert/gris foncé */
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
 
-.super-text p span.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 180px;
-  background-color: #252B48;
-  color: #F7E987;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 100%; /* Positionne la tooltip au-dessus */
-  left: 50%;
-  margin-left: -90px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+    .tooltip:hover {
+      background-color: #fff;
+      box-shadow: 0 0 6px #252B48;
+      text-shadow: none;
+      color: #252B48
+    }
 
-.super-text p span.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
+    .tooltip::after {
+      content: ' ⓘ';
+      font-size: 0.75em;
+      color: #5B9A8B;
+      margin-left: 4px;
+    }
 
-.super-text p strong {
-  font-weight: bold;
-  color: #445069; /* Accentuation du texte en gras avec une couleur complémentaire */
-}
+
+
+    .tooltiptext {
+      visibility: hidden;
+      width: 220px;
+      background-color: #333;
+      color: #252B48;
+      text-align: center;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      position: absolute;
+      z-index: 10;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .super-text p strong {
+      font-weight: bold;
+      color: #445069;
+      /* Accentuation du texte en gras avec une couleur complémentaire */
+    }
 
 
 
@@ -672,31 +781,85 @@ p.subtitle {
 
     <section class="balance">
       <div class="card">
-        <h3>Sécurité vs Liberté</h3>
-        <p>Plus de surveillance... mais à quel prix ?</p>
-      </div>
-      <div class="card">
-        <h3>Technologie neutre ?</h3>
-        <p>Qui décide de l’usage des drones ? Un outil n’est jamais neutre.</p>
+        <h3>🔐 Sécurité vs Liberté</h3>
+        <p>Plus de surveillance… mais à quel prix ?</p>
+        <button class="open-modal" data-modal="modal1">Voir plus</button>
       </div>
 
-      <section class="balance">
-        <div class="card">
-          <h3>Pushbacks illégaux</h3>
-          <p>Des drones repèrent les embarcations pour coordonner des refoulements vers la Libye, en violation du droit
-            international.</p>
+      <div class="card">
+        <h3>🤖 Technologie neutre ?</h3>
+        <p>Qui décide de l’usage des drones ? Un outil n’est jamais neutre.</p>
+        <button class="open-modal" data-modal="modal2">Voir plus</button>
+      </div>
+
+      <div class="card">
+        <h3>🚫 Pushbacks illégaux</h3>
+        <p>Des drones repèrent les embarcations pour coordonner des refoulements vers la Libye.</p>
+        <button class="open-modal" data-modal="modal3">Voir plus</button>
+      </div>
+
+      <div class="card">
+        <h3>⚠️ Non-assistance en mer</h3>
+        <p>Repérer ne veut pas toujours dire sauver. Les secours manquent souvent.</p>
+        <button class="open-modal" data-modal="modal4">Voir plus</button>
+      </div>
+
+      <div class="card">
+        <h3>💥 Profilage et discrimination</h3>
+        <p>Ciblage ethnique et suspicion systématique via IA.</p>
+        <button class="open-modal" data-modal="modal5">Voir plus</button>
+      </div>
+
+      <!-- Modales cachées -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3>🔐 Sécurité vs Liberté</h3>
+          <p>Le renforcement des mesures de surveillance déplace l’équilibre entre protection et libertés. Les données
+            massives permettent des abus sans cadre clair.</p>
         </div>
-        <div class="card">
-          <h3>Non-assistance en mer</h3>
-          <p>Repérer ne veut pas toujours dire sauver. Les drones ne remplacent pas les opérations de secours, souvent
-            absentes.</p>
+      </div>
+
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3>🤖 Technologie neutre ?</h3>
+          <p>Le choix d’usage d’un drone reflète toujours une vision politique et économique. L’outil se lie aux
+            intérêts de ceux qui le contrôlent.</p>
         </div>
-        <div class="card">
-          <h3>Profilage et discrimination</h3>
-          <p>Les caméras et IA intégrées favorisent le ciblage ethnique et renforcent les logiques de suspicion
-            systématique.</p>
+      </div>
+
+      <div id="modal3" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3>🚫 Pushbacks illégaux</h3>
+          <p>Repousser les embarcations via données dronisées viole le droit d’asile et expose les personnes à un danger
+            accru.</p>
         </div>
-      </section>
+      </div>
+
+      <div id="modal4" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3>⚠️ Non-assistance en mer</h3>
+          <p>Le rôle principal des drones reste la détection : ils n’assurent pas les sauvetages, laissant parfois les
+            populations à la dérive.</p>
+        </div>
+      </div>
+
+      <div id="modal5" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3>💥 Profilage et discrimination</h3>
+          <p>L’IA embarquée peut stigmatiser certains profils ethniques, renforçant les logiques de suspicion sans
+            fondement réel.</p>
+        </div>
+      </div>
+    </section>
+
+
+
+
 
     </section>
 
@@ -706,26 +869,39 @@ p.subtitle {
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">🛰️ Frontière intelligente</div>
-            <div class="flip-card-back">Des drones autonomes, pilotés par IA, décident en temps réel qui
-              peut passer ou non.</div>
+            <div class="flip-card-back">
+              À Roissy, les « Frontières intelligentes » combinent biométrie et IA pour fluidifier les contrôles tout en
+              renforçant la sécurité. Bien que ces technologies améliorent l'efficacité, elles soulèvent des
+              préoccupations sur la protection des données personnelles.
+            </div>
           </div>
         </div>
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">🔐 Opacité totale</div>
-            <div class="flip-card-back">La technologie devient propriété exclusive des États. Les
-              journalistes n’ont plus accès aux données.</div>
+            <div class="flip-card-back">
+              L'usage des technologies de surveillance par les États soulève des risques pour la vie privée, avec une
+              concentration accrue de données sensibles. Sans régulation, cela pourrait menacer les libertés
+              individuelles et la transparence.
+            </div>
           </div>
         </div>
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">🤝 Surveillance éthique</div>
-            <div class="flip-card-back">Les drones sont surveillés par des commissions mixtes, et utilisés
-              aussi pour sauver.</div>
+            <div class="flip-card-back">
+              Les technologies de surveillance, comme les drones, doivent respecter des principes éthiques : nécessité,
+              proportionnalité et transparence. La CNIL et le Conseil d'État insistent sur la sécurité des données et le
+              respect des droits des citoyens.
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+
+
+
 
     <div class="quote-final">
       <blockquote>
@@ -734,7 +910,7 @@ p.subtitle {
       </blockquote>
       <p><strong>Grégoire Chamayou</strong> - Théorie du drone</p>
     </div>
-    <section class="super-text">
+    <section class="super-text justify">
       <p>L’usage massif des drones en Italie soulève une inquiétude grandissante : celle d’une frontière qui se
         militarise, d’un ciel devenu complice d’une surveillance sans visage. Collecter, repérer, repousser — sans
         regard, sans échange, sans recours. À mesure que la technologie s’affine, l’humain s’efface.</p>
@@ -751,12 +927,11 @@ p.subtitle {
         Et que devient notre humanité quand elle se confie aux machines pour regarder à sa place ?</p>
 
       <p>
-        L’usage massif des <span class="tooltip">drones<span class="tooltiptext">Aéronef sans pilote humain à bord,
-            piloté à distance ou de manière autonome.</span>
-        </span> soulève une inquiétude grandissante : celle d’une frontière qui se <span class="tooltip">militarise
-          <span class="tooltiptext">Processus par lequel une zone ou une pratique adopte des caractéristiques
-            militaires.</span>
-        </span>, d’un ciel devenu complice d’une surveillance sans visage.
+        L’usage massif des dronesAéronef sans pilote humain à bord,
+        piloté à distance ou de manière autonome. soulève une inquiétude grandissante : celle d’une frontière qui se
+        militarise
+        Processus par lequel une zone ou une pratique adopte des caractéristiques
+        militaires, d’un ciel devenu complice d’une surveillance sans visage.
       </p>
 
 
@@ -808,6 +983,56 @@ p.subtitle {
       const menu = document.querySelector('.flight-steps');
       menu.classList.toggle('show');
     }
+
+
+  </script>
+
+  <script>
+    // Sélectionner tous les boutons "Voir plus" et modales correspondantes
+    const openModalButtons = document.querySelectorAll('.open-modal');
+    const modals = document.querySelectorAll('.modal');
+    const closeModalButtons = document.querySelectorAll('.close');
+
+    // Fonction pour ouvrir une modale
+    function openModal(modal) {
+      modal.style.display = 'flex';
+    }
+
+    // Fonction pour fermer une modale
+    function closeModal(modal) {
+      modal.style.display = 'none';
+    }
+
+    // Ajouter des écouteurs d'événements aux boutons "Voir plus"
+    openModalButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        openModal(modals[index]); // Afficher la modale correspondante au bouton
+      });
+    });
+
+    // Ajouter des écouteurs d'événements aux boutons de fermeture
+    closeModalButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        closeModal(modals[index]); // Fermer la modale correspondante au bouton
+      });
+    });
+
+    // Masquer les modales au chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+      modals.forEach(modal => {
+        modal.style.display = 'none'; // Assurez-vous que les modales sont fermées initialement
+      });
+    });
+
+    // Ajouter un écouteur d'événement pour fermer la modale si on clique à l'extérieur
+    window.addEventListener('click', (event) => {
+      modals.forEach(modal => {
+        // Vérifier si le clic s'est fait à l'extérieur de la modale
+        if (event.target === modal) {
+          closeModal(modal);
+        }
+      });
+    });
 
 
   </script>

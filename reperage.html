@@ -41,7 +41,7 @@
             padding-top: 80px;
         }
 
-        
+
         .legend-text {
             font-size: 3vw;
             max-width: 50%;
@@ -222,14 +222,41 @@
         }
 
         .ONG {
-            top: 75%;
-            left: 34.5%;
+            top: 73%;
+            left: 36.5%;
         }
 
 
-        .thales {
-            top: 67%;
-            left: 34.5%;
+        .airbus {
+            top: 76%;
+            left: 32%;
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto 20px auto;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(68, 80, 105, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .styled-table thead {
+            background-color: #445069;
+            color: #F7E987;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .styled-table tbody tr:hover {
+            background-color: #f1f1f1;
         }
 
         /* Info sur l'acteur cliqué */
@@ -295,30 +322,49 @@
             font-size: small;
         }
 
+        /* Tooltip (si tu l’utilises ici aussi) */
         .tooltip {
+            background-color: #F7E987;
+            color: #252B48;
             position: relative;
-            cursor: help;
-            border-bottom: 1px dashed #fefefe;
+            cursor: pointer;
+            /* ton bleu moyen */
+            font-weight: 600;
+            border-radius: 5px;
+            /* ton vert/gris foncé */
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
-        .tooltip .tooltiptext {
+        .tooltip:hover {
+            background-color: #fff;
+            box-shadow: 0 0 6px #F7E987;
+            text-shadow: none;
+        }
+
+        .tooltip::after {
+            content: ' ⓘ';
+            font-size: 0.75em;
+            color: #5B9A8B;
+            margin-left: 4px;
+        }
+
+
+
+        .tooltiptext {
             visibility: hidden;
             width: 220px;
-            background-color: #f9f9f9;
-            color: #333;
-            text-align: left;
-            border-radius: 5px;
-            padding: 8px 10px;
+            background-color: #333;
+            color: #F7E987;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
             position: absolute;
-            z-index: 1;
+            z-index: 10;
             bottom: 125%;
-            /* Place au-dessus */
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
-            transition: opacity 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            font-size: 0.9rem;
+            transition: opacity 0.3s;
         }
 
         .tooltip:hover .tooltiptext {
@@ -337,11 +383,11 @@
 
         @media (min-width: 1300px) {
 
-.main-title,
-.section-title {
-    font-size: 2.5rem;
-}
-}
+            .main-title,
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
 
         @media (max-width: 880px) {
             .map-section {
@@ -443,7 +489,7 @@
             <div class="map-point frontex red" onclick="showActorInfo('frontex')"></div>
             <div class="map-point paf red" onclick="showActorInfo('paf')"></div>
             <div class="map-point migrants yellow" onclick="showActorInfo('migrants')"></div>
-            <div class="map-point thales green" onclick="showActorInfo('thales')"></div>
+            <div class="map-point airbus green" onclick="showActorInfo('airbus')"></div>
             <div class="map-point ONG blue" onclick="showActorInfo('ONG')"></div>
 
         </div>
@@ -468,7 +514,12 @@
             </p>
             <p><strong>Contexte :</strong> Acteur central dans le déploiement technologique à grande échelle. L’agence
                 fournit drones, financement, et expertise logistique à l’Italie dans le cadre du programme Eurosur. Elle
-                est critiquée pour les pushbacks illégaux et un manque de transparence.</p>
+                est critiquée pour les
+                <span class="tooltip">"pushbacks" illégaux<span class="tooltiptext">Renvoi forcé de migrants vers un
+                        pays sans évaluation individuelle ni possibilité de demander l’asile, en violation du droit
+                        international. ​</span></span>
+                et un manque de transparence.
+            </p>
             <figure class="img-frontex">
                 <h3 class="img-title">Budget annuel de Frontex</h3>
                 <img src="budget.png" alt="Infographie des opérations de drones"
@@ -485,57 +536,209 @@
         </div>
 
         <div class="actor-info" id="paf-info">
-            <h3>Police aux Frontières</h3>
+            <h3>Police aux Frontières (P.A.F.)</h3>
             <p>🔴 Surveillant</p>
             <br>
             <p><strong>Localisation :</strong> Alpes-Maritimes, France</p>
-            <p><strong>Statut :</strong> Forces de l'ordre</p>
-            <p><strong>Rôle :</strong> Contrôle et gestion quotidienne des points de passage</p>
-            <p><strong>Technologies :</strong> Caméras, drones tactiques, interpellations</p>
-            <p><strong>Contexte :</strong> Bras opérationnel de la surveillance, notamment dans les Alpes. Les drones y
-                sont perçus comme un outil de patrouille efficace mais controversé, surtout en zone montagneuse.</p>
-            <blockquote>"Les drones nous permettent de voir sans être vus."</blockquote>
+            <p><strong>Statut :</strong> Forces de l'ordre françaises</p>
+            <p><strong>Rôle :</strong> Contrôle des flux migratoires et surveillance des frontières terrestres,
+                notamment alpines</p>
+            <p><strong>Technologies :</strong>
+                <span class="tooltip">Drones tactiques<span class="tooltiptext">Drones de petite taille, utilisés pour
+                        les opérations de reconnaissance et de surveillance en temps réel dans des zones difficiles
+                        d’accès comme les montagnes.</span></span>,
+                caméras, jumelles, dispositifs radio de coordination
+            </p>
+            <p><strong>Contexte :</strong> Acteur clef dans la lutte contre les franchissements irréguliers dans les
+                régions montagneuses. La P.A.F. utilise les drones pour anticiper les trajectoires de passage et
+                intervenir rapidement. Si leur efficacité opérationnelle est reconnue, leur usage suscite une vive
+                controverse, notamment en raison de leur rôle dans les <span class="tooltip">interceptions en haute
+                    altitude<span class="tooltiptext">Les interceptions dans les cols alpins sont particulièrement
+                        risquées et exposent les migrants à des dangers liés au froid et à la chute, sans toujours
+                        permettre un recours ou un accompagnement humanitaire.</span></span>. La frontière alpine
+                devient ainsi un théâtre de surveillance renforcée, au détriment, selon certains, des droits
+                fondamentaux.</p>
+
+            <figure class="img-paf">
+                <h3 class="img-title">Évolution des interpellations dans les Alpes-Maritimes</h3>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Année</th>
+                            <th>Nombre d’interpellations / non-admissions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2017</td>
+                            <td>44 433 non-admissions à la frontière franco-italienne</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>+30 000 migrants interpellés</td>
+                        </tr>
+                        <tr>
+                            <td>2023</td>
+                            <td>44 100 interpellations enregistrées</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <figcaption>Source : Ministère de l’intérieur, rapports parlementaires, presse</figcaption>
+            </figure>
+
+            <br>
+            <p>
+                Entre 2018 et 2024, les interpellations de migrants dans les Alpes ont considérablement augmenté, en
+                parallèle du renforcement des dispositifs technologiques. Ces pratiques font l’objet de critiques
+                récurrentes de la part d’ONG qui dénoncent des <span class="tooltip">conditions inhumaines<span
+                        class="tooltiptext">Manque d’abris, températures extrêmes, absence d’accès aux soins ou à des
+                        services juridiques sur la frontière franco-italienne.</span></span> et une stratégie de
+                dissuasion plus que de protection.
+            </p>
         </div>
+
 
         <div class="actor-info" id="migrants-info">
             <h3>Migrants</h3>
             <p>🟡 Surveillés</p>
             <br>
-            <p><strong>Localisation :</strong> Méditerranée</p>
-            <p><strong>Statut :</strong> Acteurs en mouvement</p>
-            <p><strong>Rôle :</strong> Traversées pour fuir la guerre, la pauvreté ou le climat</p>
-            <p><strong>Technologies :</strong> Applications GPS, routes partagées, évitement surveillance</p>
-            <p><strong>Contexte :</strong> Cibles directes de la surveillance. Les drones entravent souvent l’accès aux
-                procédures d’asile, renforcent les discriminations, et aggravent les conditions psychologiques des
-                personnes en déplacement.</p>
-            <blockquote>"Nous ne savons jamais si nous allons y arriver."</blockquote>
-        </div>
+            <p><strong>Localisation :</strong> Méditerranée, Balkans, Alpes</p>
+            <p><strong>Statut :</strong> Acteurs en mouvement, souvent sans statut légal reconnu</p>
+            <p><strong>Rôle :</strong> Traversées pour fuir la guerre, la pauvreté ou les catastrophes climatiques</p>
+            
+            <p><strong>Technologies :</strong>
+              <span class="tooltip">Applications GPS<span class="tooltiptext">Des apps comme Maps.me ou Komoot sont utilisées pour naviguer discrètement sur les routes migratoires.</span></span>,
+              téléphones chiffrés, réseaux sociaux, stratégies d’évitement de la surveillance
+            </p>
+            
+            <p><strong>Contexte :</strong> 
+              Les migrants sont les premiers impactés par le déploiement technologique. 
+              Les drones rendent les traversées plus dangereuses en forçant les groupes à emprunter des routes secondaires (montagne, nuit), souvent fatales. 
+              La surveillance réduit l’accès à l’asile, invisibilise les violations de droits, et renforce le sentiment d’abandon.
+            </p>
+            
+            <p><strong>Risques psychologiques :</strong> 
+              États de stress post-traumatique, anxiété liée à l'invisibilité des menaces (drones, capteurs), perte de sommeil, peur constante de l’interception.
+            </p>
+            
+            <figure class="img-migrants">
+              <h3 class="img-title">Estimations des morts en Méditerranée centrale</h3>
+              <table class="styled-table">
+                <thead>
+                  <tr>
+                    <th>Année</th>
+                    <th>Morts ou disparus</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2020</td>
+                    <td>1 401</td>
+                  </tr>
+                  <tr>
+                    <td>2021</td>
+                    <td>1 553</td>
+                  </tr>
+                  <tr>
+                    <td>2022</td>
+                    <td>1 417</td>
+                  </tr>
+                  <tr>
+                    <td>2023</td>
+                    <td>2 498</td>
+                  </tr>
+                </tbody>
+              </table>
+              <figcaption>Source : OIM (Organisation Internationale pour les Migrations), Missing Migrants Project</figcaption>
+            </figure>
+        
+          </div>
+          
 
-        <div class="actor-info" id="thales-info">
-            <h3>Thalès</h3>
+          <div class="actor-info" id="airbus-info">
+            <h3>Airbus</h3>
             <p>🟢 Concepteur</p>
             <br>
-            <p><strong>Localisation :</strong> Paris, France</p>
-            <p><strong>Statut :</strong> Entreprise privée</p>
-            <p><strong>Rôle :</strong> Fourniture de technologies de surveillance</p>
-            <p><strong>Technologies :</strong> Radar, IA de reconnaissance, capteurs optiques</p>
-            <p><strong>Contexte :</strong> Exemple d’entreprise impliquée dans la fourniture de technologies de
-                surveillance. Son rôle soulève des questions sur la privatisation de la sécurité aux frontières.</p>
-            <blockquote>"Nous innovons pour la sécurité de tous."</blockquote>
-        </div>
-        <div class="actor-info" id="ONG-info">
+            <p><strong>Localisation :</strong> Toulouse, France</p>
+            <p><strong>Statut :</strong> Multinationale européenne</p>
+            <p><strong>Rôle :</strong> Fourniture de drones et services associés à Frontex</p>
+            
+            <p><strong>Technologies :</strong>
+              <span class="tooltip">Drone Heron 1<span class="tooltiptext">Drone de moyenne altitude et longue endurance développé à l’origine par Israel Aerospace Industries, opéré par Airbus pour Frontex.</span></span>,
+              systèmes de communication satellitaire, maintenance, pilotage à distance
+            </p>
+            
+            <p><strong>Contexte :</strong> Airbus joue un rôle-clé dans la surveillance des frontières européennes en opérant pour Frontex des vols de drones Heron depuis la Crète ou Malte. 
+              Ces missions incluent la collecte d’images, le suivi de cibles maritimes et la transmission en temps réel à Frontex. 
+              Le partenariat a été critiqué pour son manque de transparence et sa possible implication dans des refoulements illégaux.
+            </p>
+          
+            <p><strong>Contrat majeur :</strong> En 2021, Airbus a remporté un contrat de <strong>50 millions d’euros</strong> pour fournir et opérer des drones MALE (moyenne altitude, longue endurance) au service de Frontex.</p>
+          
+            <figure class="img-airbus">
+              <h3 class="img-title">Drone Heron 1</h3>
+              <img src="drone-heron.jpg" alt="Drone Heron 1 utilisé par Frontex" style="width:80%; max-width:80%; display:block; margin:20px auto;">
+              <figcaption>Le Heron 1 opéré par Airbus est équipé pour surveiller de vastes zones maritimes sans pilote humain à bord.</figcaption>
+            </figure>
+          
+            <blockquote>“Nous opérons selon les besoins de Frontex, dans le respect des réglementations européennes.”</blockquote>
+          </div>
+          
+          <div class="actor-info" id="ong-info">
             <h3>ONG</h3>
             <p>🔵 Défenseur des droits</p>
             <br>
-            <p><strong>Localisation :</strong> France</p>
-            <p><strong>Organismes :</strong> Amnesty international, ANAFE</p>
-            <p><strong>Rôle :</strong> Secours et protection des droits des migrants</p>
-            <p><strong>Moyens :</strong> Documentation des abus, Pression politique, Mobilisation communautaire</p>
-            <p><strong>Contexte :</strong>Pricipaux dénonciateurs des abus et atteintes aux Droits de l'homme. Elles
-                appellent à une utilisation éthique des drones, plaident pour des alternatives respectueuses des droits
-                des migrants et mobilisent l’opinion publique pour renforcer la solidarité envers ceux en détresse.</p>
+            <p><strong>Localisation :</strong> France, Méditerranée, Balkans</p>
+            <p><strong>Organismes :</strong> Amnesty International, ANAFE, Sea-Watch, SOS Méditerranée, Médecins Sans Frontières</p>
+            <p><strong>Rôle :</strong> Secours, observation et plaidoyer pour la protection des droits des personnes exilées</p>
+            
+            <p><strong>Moyens :</strong> 
+              <span class="tooltip">Documentation des abus<span class="tooltiptext">Collecte de témoignages, vidéos et rapports sur les violations des droits humains aux frontières.</span></span>, 
+              pression politique, interventions juridiques, missions de sauvetage, mobilisation citoyenne
+            </p>
+            
+            <p><strong>Contexte :</strong> Les ONG jouent un rôle essentiel de contre-pouvoir. Elles surveillent l’usage des drones par les autorités, dénoncent les
+              <span class="tooltip">refoulements illégaux<span class="tooltiptext">Renvois sans procédure légale ni évaluation individuelle, souvent orchestrés à partir d’images de drones.</span></span>
+              et demandent des alternatives plus humaines. 
+              Elles font face à des obstacles croissants : criminalisation de la solidarité, restrictions d’accès aux zones surveillées, manque de transparence des opérations officielles.
+            </p>
+          
+            <figure class="img-ong">
+              <h3 class="img-title">Intervention en mer</h3>
+              <img src="sea-rescue.jpg" alt="ONG intervenant en Méditerranée" style="width:100%; max-width:100%; display:block; margin:20px auto;">
+              <figcaption>Des ONG comme SOS Méditerranée interviennent directement en mer pour pallier l’absence de sauvetage étatique.</figcaption>
+            </figure>
+          
             <blockquote>"La surveillance ne doit pas violer les droits des personnes en mouvement."</blockquote>
-        </div>
+          </div>
+          <div class="actor-info" id="ONG-info">
+            <h3>ONG</h3>
+            <p>🔵 Défenseur des droits</p>
+            <br>
+            <p><strong>Localisation :</strong> France, Méditerranée, Balkans</p>
+            <p><strong>Organismes :</strong> Amnesty International, ANAFE, Sea-Watch, SOS Méditerranée, Médecins Sans Frontières</p>
+            <p><strong>Rôle :</strong> Secours, observation et plaidoyer pour la protection des droits des personnes exilées</p>
+            
+            <p><strong>Moyens :</strong> 
+              <span class="tooltip">Documentation des abus<span class="tooltiptext">Collecte de témoignages, vidéos et rapports sur les violations des droits humains aux frontières.</span></span>, 
+              pression politique, interventions juridiques, missions de sauvetage, mobilisation citoyenne
+            </p>
+            
+            <p><strong>Contexte :</strong> Les ONG jouent un rôle essentiel de contre-pouvoir. Elles surveillent l’usage des drones par les autorités, dénoncent les
+              <span class="tooltip">refoulements illégaux<span class="tooltiptext">Renvois sans procédure légale ni évaluation individuelle, souvent orchestrés à partir d’images de drones.</span></span>
+              et demandent des alternatives plus humaines. 
+              Elles font face à des obstacles croissants : criminalisation de la solidarité, restrictions d’accès aux zones surveillées, manque de transparence des opérations officielles.
+            </p>
+          
+            <figure class="img-ong">
+              <h3 class="img-title">Intervention en mer</h3>
+              <img src="sea-rescue.jpg" alt="ONG intervenant en Méditerranée" style="width:80%; max-width:80%; display:block; margin:20px auto;">
+              <figcaption>Des ONG comme SOS Méditerranée interviennent directement en mer pour pallier l’absence de sauvetage étatique.</figcaption>
+            </figure>
+          
+            <blockquote>"La surveillance ne doit pas violer les droits des personnes en mouvement."</blockquote>
+          </div>
+                    
 
     </section>
 
